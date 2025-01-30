@@ -1,0 +1,1341 @@
+/* General Styles (No change) */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: rgba(0, 0, 0, 0.2);
+    --main-color: #fff;
+    --hover-color: rgba(255, 255, 255, 0.6);
+    --primary-color: #215582;
+    --nav-background-color: #215582;
+    --glass-shadow-black: rgba(0, 0, 0, 0.9);
+    
+
+}
+.dm-serif-display-regular {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-serif-display-regular-italic {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Fira Sans", sans-serif;
+    padding-top: 120px;
+    box-sizing: border-box;
+}
+
+.imgbackground-container {
+    background-image: url('img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    animation: changeBg 15s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@keyframes changeBg {
+    0% {
+        background-image: url('img/tourPlaces/Beach.jpg');
+    }
+
+    20% {
+        background-image: url('img/tourPlaces/kandy.jpg');
+    }
+
+    40% {
+        background-image: url('img/tourPlaces/Heritage\ places.jpg');
+    }
+
+    60% {
+        background-image: url('img/tourPlaces/natre2.jpg');
+    }
+
+    80% {
+        background-image: url('img/tourPlaces/Sigiriya.jpg');
+    }
+
+    100% {
+        background-image: url('img/tourPlaces/Nature.jpg');
+    }
+}
+
+/* Header Styles (Modified) */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--nav-background-color);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 6px var(--glass-shadow);
+    padding: 10px 20px;
+    transition: background 0.5s ease, margin-top 0.5s ease, margin 0.5s ease, width 0.5s ease;
+}
+
+/* Header Styles with glass effect (will be toggled) */
+header.glass-effect {
+    font-size: small;
+    width: 85%;
+    margin:75px;
+    margin-top: 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 2px;
+}
+
+.contact-items {
+    display: flex;
+    align-items: flex-start;
+    flex-direction:row;
+    gap: 18px;
+    margin-top: 5px;
+    padding: 15px 10px;
+    border-radius: 12px 0 12px 0;
+    transition: background-color 0.3s ease;
+    background: #ffffff;
+}
+
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--);
+    font-size: 13px;
+    transition: color 0.3s ease, transform 0.3s ease,  backdrop-filter 0.3s ease;
+}
+
+.contact-item:hover {
+    color: var(--primary-color);
+    transform: translateX(2px);
+
+}
+
+.contact-item.glass-contact {
+    color: #000;
+    backdrop-filter: blur(0px); /* Apply blur on the contact*/
+    transition: color 0.3s ease, transform 0.3s ease,  backdrop-filter 0.3s ease; /* Added transition */
+}
+
+.contact-item.glass-contact:hover {
+   color: var(--primary-color);
+   background-color: rgba(255, 255, 255, 0.1); /* Blur background */
+   backdrop-filter: blur(3px); /* Apply blur on hover */
+}
+.contact-item i {
+    font-size: 16px;
+}
+
+/* Logo Styles (Modified) */
+.nav-brand img {
+    height: 80px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.nav-brand:hover img {
+    transform: scale(1.1);
+}
+
+/* Navigation Links Styles (Modified) */
+header nav .nav-links-container ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav .nav-links-container ul li {
+    position: relative;
+}
+
+header nav .nav-links-container ul li a {
+    font-family: "Fira Sans", Arial, sans-serif;
+    z-index: 2000;
+    text-decoration: none;
+    color: var(--main-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav .nav-links-container ul li a:hover {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+}
+
+header nav .nav-links-container ul li a.active {
+    background-color: #807a7a ;
+    color:#fff;
+}
+
+header nav .nav-links-container ul li a.glass-link {
+    /* link color when glass is active */
+    color: #000;
+}
+
+/* Dropdown Menu Styles */
+.nav-links-container ul li {
+  position: relative; /* Needed for absolute positioning of the dropdown */
+}
+/* Updated Dropdown Menu Styles with arrow and images */
+
+/* Parent List Item */
+.nav-links-container ul li {
+  position: relative;
+}
+
+
+/* The trigger link */
+.nav-links-container ul li a#displayBox {
+ position: relative;
+
+}
+
+/* Arrow Indicator Style */
+
+.nav-links-container ul li a#displayBox::after {
+  content: '\25BC'; /* Unicode for a down-pointing triangle */
+  font-size: 10px;
+  margin-left: 5px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  color: var(--main-color);
+}
+
+.nav-links-container ul li:hover a#displayBox::after {
+  transform: rotate(180deg);
+}
+
+
+/* Dropdown menu */
+.nav-links-container ul li .dropdown-menu-menue {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--nav-background-color);
+  border: 1px solid var(--glass-border);
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px var(--glass-shadow);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1100;
+  white-space: nowrap;
+  min-width: 200px; /* Increase for content */
+  /* Add new */
+}
+
+.nav-links-container ul li:hover .dropdown-menu-menue {
+  display: block;
+}
+
+/* Dropdown List items with images */
+.nav-links-container ul li .dropdown-menu-menue li a {
+  display: flex; /* Added Flex */
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--main-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+.nav-links-container ul li .dropdown-menu-menue li a img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 4px;
+} /* New image styles */
+
+
+.nav-links-container ul li .dropdown-menu-menue li a:hover {
+  background-color: var(--hover-color);
+  color: var(--primary-color);
+}
+
+header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
+  color:#000;
+}
+
+/*nav bar finished*/
+/* Dropdown Menu Styles (Modified for upward opening) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: rgb(105, 102, 102);
+    border: 1px solid black;
+    box-shadow: 0 4px 6px black;
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    list-style: none;
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 180px;
+    
+}
+
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--hover-color);
+}
+
+/* remaining page styles (No Change) */
+.imgBox {
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 40px;
+    width: 60%;
+    margin: auto;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.imgBox h1 {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    margin-bottom: 15px;
+}
+
+.imgBox p {
+    font-size: 1.2rem;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.combined-input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.homeInputBox,
+.homeInputBox2 {
+    list-style: none;
+    padding: 0;
+}
+
+.homeInputBox li,
+.homeInputBox2 li {
+    position: relative;
+}
+
+.homeInputBox a,
+.homeInputBox2 a {
+    text-decoration: none;
+    color: var(--main-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    backdrop-filter: blur(8px);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.homeInputBox a:hover,
+.homeInputBox2 a:hover {
+    background-color: var(--hover-color);
+    color: #000;
+}
+
+.homeInputBox li:hover .dropdown-menu,
+.homeInputBox2 li:hover .dropdown-menu {
+    display: block;
+}
+
+/*search */
+.search {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.search i {
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.search:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.search:hover i {
+    color: #000;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.scroll-down-indicator {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--main-color);
+}
+
+.scroll-down-indicator .mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--main-color);
+    border-radius: 15px;
+    margin: 0 auto 10px;
+    position: relative;
+}
+
+.scroll-down-indicator .mouse .wheel {
+    width: 4px;
+    height: 10px;
+    background: var(--main-color);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    0%,
+    100% {
+        top: 8px;
+    }
+
+    50% {
+        top: 20px;
+    }
+}
+
+
+.about-info {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 40px;
+    text-align: center;
+    box-sizing: border-box;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.5s forwards; /* Fade-in animation for the section */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.about-info h1 {
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(30px);
+    /* Initial offset for the slide animation */
+    opacity: 0;
+    /* Initial opacity */
+    animation: slideInHeader 0.8s ease-out 1s forwards;
+    /* Animation applied to header */
+}
+
+@keyframes slideInHeader {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-info h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    z-index: -1;
+    animation: reveal 2s ease-in-out infinite alternate;
+}
+
+@keyframes reveal {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.about-info p {
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    transform: translateY(20px);
+    /* Initial offset for paragraph slide */
+    opacity: 0;
+    /* Initial opacity */
+    animation: slideInParagraph 0.8s ease-out 1.2s forwards;
+    /* Animation applied to paragraph */
+}
+
+@keyframes slideInParagraph {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*page3 jorney */
+.parallax {
+    height: 500px; /* Adjust as needed */
+    background-image: url('img/tourPlaces/nature4.jpg'); /* Replace with your image path */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; /* For absolute positioning of content */
+    overflow: hidden; /* Prevents content from overflowing background */
+  }
+  /*  added a linear-gradient for a nice dark overlay and added a background color */
+  .parallax::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+      z-index: 1; /* Place overlay above background image */
+  }
+  
+  .content-parallax {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2; /* Ensure content is above the overlay */
+  }
+  
+  .content-parallax h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: fadeInDown 1.5s ease-out;  /* Add animation for heading */
+  }
+      
+  
+  /*added the new animation effect */
+  .parallax {
+    height: 500px; /* Adjust as needed */
+    position: relative;
+    overflow: hidden; /* Prevents overflow issues */
+  }
+  
+  .parallax-bg {
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 130%; /* Make the image taller than the parallax for the parallax effect */
+      z-index: 0; /* Place background behind content */
+      transform: translateZ(-10px) scale(1.1); /* Add a little zoom and move it back on Z-axis */
+  }
+      
+  
+  .content-parallax {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2; /* Ensure content is above the background image and overlay */
+  }
+  
+  
+  .content-parallax h1 {
+    text-transform: uppercase; 
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 3em;
+    margin-bottom: 10px;
+    animation: fadeInRight 1s ease-out; /* New heading animation */
+  }
+  
+  .content-parallax p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      animation: fadeInUp 1.2s ease-out;/* New paragraph animation */
+  }
+  /*added the new heading animation effect */
+  @keyframes fadeInRight {
+      from {
+          opacity: 0;
+          transform: translateX(-100px);
+      }
+      to {
+          opacity: 1;
+          transform: translateX(0);
+      }
+  }
+  
+  /*added the new paragraph animation effect */
+  @keyframes fadeInUp {
+      from {
+          opacity: 0;
+          transform: translateY(50px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  
+  
+  .content-parallax button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #ff7f50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 12px; 
+      transition: all 0.3s ease-in-out;
+  }
+  .content-parallax button:hover {
+      filter: blur(0px);
+      background-color: #ff6b3a;
+      transform: scale(1.1);
+  }
+/*page3 jorney end*/
+/*Gallery page*/
+/* Gallery Container Styling */
+.gallery-container h1{
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
+}
+.gallery-container {
+    margin: 0;
+    padding: 0;
+    margin-top: 75px;
+    margin-left: 90px;
+    margin-right: 90px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 0;
+    transition: height 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay h3, .overlay p {
+    padding: 30px;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item:hover .overlay {
+    height: 100%;
+}
+
+.gallery-item:hover .overlay h3 {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+
+.gallery-item:hover .overlay p {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+/*Gallerry end*/
+
+/*slider start one start*/
+/*day tours*/
+.slider-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 90px auto;
+  padding: 20px;
+  position: relative; /* Constrain arrows and dots */
+  overflow: hidden; /* Prevent overflow */
+}
+.slider-title {
+  text-align: center;
+  color: #2a2a2a;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%; /* Ensure slider takes up full height */
+  padding: 20px;
+}
+
+.swiper-slide {
+  background: #5085b4;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  margin: 0 10px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.swiper-slide h3 {
+  margin: 15px 0 10px;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.swiper-slide p {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.swiper-slide button {
+  background: #215582;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.swiper-slide button:hover {
+  background: #215582;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.swiper-button-next {
+  right: 10px; /* Position next arrow */
+}
+
+.swiper-button-prev {
+  left: 10px; /* Position previous arrow */
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  background: #215582;
+  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+  margin: 0 8px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+/*slider end*/
+/*paralex effact2*/
+.container-parallax2 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .parallax-container2 {
+     display: flex;
+     gap: 10px;
+     justify-content: center;
+      align-items: center;
+      padding: 10px;
+     max-width: 1600px;
+          width: 100%;
+  }
+
+  .parallax-container2 > div {
+      display: flex;
+      justify-content: center;
+    }
+
+  .parallax-container2 > div:nth-of-type(2) {
+        width: 100%;
+        max-width: 500px;
+  }
+
+  .parallax-box2, .main-box2 {
+      position: relative;
+      width: 100%;
+    max-width: 300px;
+    height: 400px;
+    padding-top: 0;
+      overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      transition: transform 0.5s ease-in-out;
+  }
+
+  .main-box2 {
+    max-width: 450px;
+    height: 600px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .parallax-bg2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    background-image: url('img/tourPlaces/nature5.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -1;
+    filter: brightness(0.8);
+  }
+
+  .content2 {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 30px;
+      border-radius: inherit;
+  }
+
+  .content2 h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      margin: 0 0 20px;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      color: #fff;
+    transform: translateY(20px);
+      opacity: 0;
+        animation: fadeInUp 1s ease-out forwards 0.5s; /* Apply fadeInUp animation for heading */
+}
+
+
+  .content2 p {
+      font-size: 0.8rem;
+      margin: 0;
+      line-height: 1.6;
+      color: #e8e8e8;
+      font-weight: 300;
+    transform: translateY(20px);
+    opacity: 0;
+      animation: fadeInUp 1s ease-out forwards 0.7s; /* Apply fadeInUp animation for paragraph*/
+
+  }
+
+ /* Button Styling */
+
+ .explore-btn{
+    padding: 12px 24px;
+     background-color: rgba(255,255,255, 0.2);
+      color: #fff;
+      border: 1px solid rgba(255,255,255, 0.4);
+       border-radius: 5px;
+       cursor: pointer;
+       margin-top: 20px;
+    transform: translateY(20px);
+    opacity: 0;
+     font-weight: 600;
+        letter-spacing: 1px;
+     transition: background-color 0.3s, border-color 0.3s;
+      animation: fadeInUp 1s ease-out forwards 0.9s;  /* Apply fadeInUp animation for button */
+
+ }
+
+ .explore-btn:hover {
+     background-color: rgba(255,255,255, 0.4);
+       border-color: rgba(255,255,255, 0.6);
+ }
+
+
+/* Keyframe Animation */
+
+@keyframes fadeInUp {
+    from{
+         transform: translateY(20px);
+         opacity: 0;
+    }
+    to{
+         transform: translateY(0);
+           opacity: 1;
+    }
+}
+  /*paralex2*/
+  /*Why with us start */
+  .travelWrapper {
+    opacity: 0; /* Start invisible */
+    animation: fadeSectionIn 1.5s ease-in forwards; /* Fade-in animation */
+    overflow: hidden; /* Prevent any scrollbars during the animation */
+}
+  .travelContainer {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e6f5ff;
+    color: #2e3e5e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;  /* Changed overflow-x: hidden to overflow: hidden */
+    perspective: 1000px;
+}
+.parallaxBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  /*  overflow: hidden; Added overflow for the parallax background*/
+}
+.backgroundLayer {
+    position: absolute;
+    width: 100%; /* Modified back to 100% */
+    height: 100%; /* Modified back to 100% */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: .6;
+     pointer-events: none;
+}
+ .backgroundLayer:nth-child(1){
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 200 200" fill="none"%3E%3Ccircle cx="100" cy="100" r="100" fill="%239bdef2" /%3E%3C/svg%3E');
+    transform: translateZ(-60px);
+    animation: moveShape1 12s linear infinite alternate;
+      background-size: 150px; /* Modified  background size of the layers*/
+  }
+.backgroundLayer:nth-child(2) {
+    background-image: url('data:image/svg+xml,%3Csvg width="50" height="50" xmlns="http://www.w3.org/2000/svg"%3E%3Crect x="0" y="0" width="50" height="50" fill="rgba(122, 179, 255, 0.2)"/%3E%3C/svg%3E');
+    transform: translateZ(20px);
+    animation: moveShape2 15s linear infinite;
+    background-size: 50px;
+    opacity: 0.6;
+    background-position: 10% 20%;
+  }
+  .backgroundLayer:nth-child(3) {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" fill="none"%3E%3Cpolygon points="50,0 100,50 50,100 0,50" fill="rgba(190, 168, 255, 0.2)"/%3E%3C/svg%3E');
+      transform: translateZ(-30px);
+      background-size: 100px;
+      animation: moveShape3 11s linear infinite reverse;
+      background-position: 20% 80%;
+  }
+ .backgroundLayer:nth-child(4) {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none"%3E%3Crect x="0" y="0" width="200" height="200" fill="rgba(130, 133, 255, 0.1)" rx="20" ry="20"/%3E%3C/svg%3E');
+      transform: translateZ(40px);
+      animation: moveShape4 20s linear infinite alternate;
+        opacity: 0.6;
+      background-size: 120px;
+    background-position: 70% 50%;
+  }
+  .travelContent {
+    margin-left: 90px;
+    margin-right: 90px;
+    max-width: 900px;
+    padding: 30px;
+      transform: translateZ(40px);
+  }
+  .travelContent h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #215582;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 25px;
+    animation: fadeInUp 1.3s ease-out;
+  }
+  .travelContent p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 10px auto 20px;
+    color: #4f5f7c;
+    animation: fadeIn 1.5s ease-out;
+  }
+  .featureSet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+      max-width: 100%;
+      margin: 20px auto;
+     transform: translateZ(20px);
+  }
+  .featureItem {
+    width: 320px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+        opacity: 0;
+        transform: translateY(30px);
+   animation: cardFadeUp 0.8s ease-out forwards;
+   }
+.featureItem:nth-child(1) { animation-delay: 0.2s; }
+.featureItem:nth-child(2) { animation-delay: 0.4s; }
+.featureItem:nth-child(3) { animation-delay: 0.6s; }
+.featureItem:nth-child(4) { animation-delay: 0.8s; }
+.featureItem:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  }
+.featureItem .itemIcon {
+    font-size: 3rem;
+    color: #0b77de;
+   margin-bottom: 15px;
+   transition: color 0.3s ease;
+ }
+.featureItem:hover .itemIcon {
+     color: #00a1e2;
+ }
+.featureItem .itemContent {
+      padding: 15px;
+    background-color: #fff;
+     flex: 1;
+}
+.featureItem .itemContent h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #2f3e4b;
+}
+.featureItem .itemContent p {
+    font-size: 1rem;
+    max-width: unset;
+    line-height: 1.6;
+    color: #6c767d;
+}
+@keyframes cardFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+to { opacity: 1; }
+}
+@keyframes fadeInUp {
+from {
+    opacity: 0;
+ transform: translateY(20px);
+ }
+  to {
+    opacity: 1;
+      transform: translateY(0);
+ }
+}
+@keyframes moveShape1 {
+    from { background-position: 0 0 ;transform: translateZ(-60px) rotate(0deg) }
+    to { background-position: 100% 100%; transform: translateZ(-60px) rotate(360deg);}
+}
+@keyframes moveShape2 {
+   from { background-position: 10% 20% ; transform: translateZ(20px) rotate(0deg) }
+    to { background-position: 90% 80% ; transform: translateZ(20px) rotate(360deg);}
+}
+@keyframes moveShape3{
+  from { background-position: 20% 80% ; transform: translateZ(-30px) rotate(0deg)}
+   to { background-position: 80% 20% ; transform: translateZ(-30px) rotate(360deg);}
+}
+ @keyframes moveShape4 {
+    from { background-position: 70% 50%; transform: translateZ(40px) rotate(0deg)}
+     to { background-position: 30% 50%; transform: translateZ(40px) rotate(360deg)}
+ }
+@media (max-width: 768px) {
+    .featureItem {
+      width: auto;
+    }
+}
+  /*why with us finish*/
+    /*footer start*/
+    footer {
+      background-color: #222;
+      color: #fff;
+      padding: 30px 0; /* Reduced padding for less height*/
+    font-size: 0.9rem;
+      position: relative;
+    overflow: hidden;
+      width: 100%;
+    }
+  footer::before {
+      content: "";
+        position: absolute;
+        top: 0;
+    left: 0;
+  width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.15), transparent);
+    }
+  .footer-container {
+    max-width: 1400px;
+        margin: 0 auto;
+      padding: 0 20px;
+        display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    position: relative;
+        gap: 20px;
+  }
+  .footer-container > div{
+    padding: 0 20px;
+    }
+  footer h2 {
+    font-size: 1.1rem; /* Decreased heading size*/
+        margin-bottom: 12px;/* Decreased spacing */
+    color: #eee;
+  transition: all 0.3s ease-in-out;
+    }
+    footer h2:hover {
+        transform: scale(1.03); /* Slightly scale up less than before*/
+    }
+    footer p, footer a{
+      font-size: 0.9rem; /* slightly smaller text size */
+          line-height: 1.5; /* less spacing between lines*/
+        margin-bottom: 8px; /* less margin spacing*/
+      color: #999;
+      text-decoration: none;
+        transition: all 0.3s ease-in-out;
+    }
+      footer a:hover {
+          color: #0979e2;  /* hover text color*/
+          transform: translateX(3px);  /* less horizontal hover effect */
+        }
+      footer ul {
+          list-style: none;
+        padding-left: 0;
+      }
+    .social-icons-footer {
+              display: flex;
+                gap: 10px; /* Decreased spacing in social icons*/
+                margin-top: 10px; /* Reduced spacing top of social sections*/
+        }
+    .social-icons-footer a {
+          font-size: 1.3rem; /* reduced sizing from before*/
+            color: #555;
+            transition: all 0.3s ease-in-out;
+        }
+          .social-icons-footer a:hover {
+
+          color: #0979e2;
+          transform: translateY(-2px) ;  /* Decreased up of icons on hover */
+            }
+    .payment-section {
+          display: flex;
+        justify-content: flex-start;
+          align-items: baseline;
+        }
+        .payment-section img {
+            margin-right: 8px;   /* reduced space in image spacing*/
+            height: 28px;    /* reduced size of payment images*/
+            transition: all 0.3s ease-in-out;
+        }
+        .payment-section  img:hover {
+            transform: scale(1.05); /* smaller scaling effect when hovering*/
+      }
+  .bottom-footer {
+        margin-top: 20px; /* Reduced margin-top on copyright section */
+        padding: 10px 20px 0;
+          display: flex;
+        justify-content: space-between;
+          border-top: 1px solid #333;
+    }
+  .bottom-footer p, .bottom-footer a{
+        font-size: 0.7rem;   /* smaller font-size of text in copyright div */
+    }
+    .bottom-footer a:hover{
+        text-decoration: underline;/* underlining element when hovering */
+        }
+    .copyright-bottom  {
+        color: #777;
+        }
+    /* Adjust for Mobile Responsiveness*/
+    @media (max-width: 768px) {
+        .footer-container  {
+            grid-template-columns: 1fr; /* Stack columns */
+        }
+      .footer-container > div {
+            padding: 20px 0 10px 0;
+          text-align: center;
+      }
+      .social-icons-footer{
+            justify-content: center;/* make social icon div center */
+        }
+        .payment-section   {
+          justify-content: center;/* make payment logos center*/
+    }
+        .bottom-footer{
+            flex-direction: column;
+            align-items: center;
+          gap: 5px; /* spacing of bottom elements*/
+      }
+  }
+    /*footer end*/

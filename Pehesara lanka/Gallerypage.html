@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Gallery</title>
+    <link rel="stylesheet" href="Gallerypage.css">
+</head>
+<body>
+    <!--Nav bar start-->
+    <section class="imgbackground-container">
+        <header>
+            <nav>
+                <a href="indexmain.html" class="nav-brand">
+                    <img src="img/logo.png" alt="logo" height="120px" width="120px">
+                </a>
+                <div class="nav-links-container">
+                    <ul>
+                       <li><a href="index.html">Home</a></li>
+                       <li> <a id="displayBox">Round Tours</a>
+                            <ul class="dropdown-menu-menue">
+                                <li><a href="/Tours/Round tours/photogrphytour.html"><img src="img/bg-3.jpg" alt="Beach">Sri Lanka Photography Tour</a></li>
+                                 <li><a href="/Tours/Round tours/SrilankaBeachTour.html"><img src="img/bg-4.jpg" alt="Mountain">Sri Lanka Beach Tour</a></li>
+                                  <li><a href="/Tours/Round tours/honeymoontour.html"><img src="img/bg2.jpg" alt="City">Sri Lanka Honeymoon Tour</a></li>
+                                 <li><a href="/Tours/Round tours/SrilankaWildTOur.html"><img src="img/ella.jpg" alt="Historical">Sri Lanka Wildlife Tour</a></li>
+                                 <li><a href="/Tours/Round tours/Ramayanatour.html"><img src="img/bg2.jpg" alt="City">Sri Lanka Ramayana Tour</a></li>
+                            </ul>
+                       </li>
+                       <li> <a id="displayBox">Day Tours</a>
+                        <ul class="dropdown-menu-menue">
+                            <li><a href="/Tours/Day tour/Ella.html"><img src="img/bg-3.jpg" alt="Beach">Ella Day tour</a></li>
+                             <li><a href="/Tours/Day tour/KandyDayTour.html"><img src="img/bg-4.jpg" alt="Mountain">Kandy day tour</a></li>
+                              <li><a href="/Tours/Day tour/Nuwaraeliya.html"><img src="img/bg2.jpg" alt="City">Nuwara Eliya Day Tour</a></li>
+                             <li><a href="/Tours/Day tour/Pinawala.html"><img src="img/ella.jpg" alt="Historical">Pinnawala Elephant Orphanage Tour</a></li>
+                        </ul>
+                   </li>
+                   <li><a href="Gallerypage.html">Gallery</a></li>
+                   <li><a href="ThingsToDo.html">Things to do in srilanka</a></li>
+                   <li><a href="AboutUs.html">About</a></li>
+                   <li><a href="Contact.html">Contact</a></li>
+                   </ul>
+                </div>
+                <div class="contact-items">
+                    <span class="contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div id="clock"></div>
+                    </span>
+                    <span class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        Call Us: +91 1234567890
+                    </span>
+                    <span class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email: example@gmail.com
+                    </span>
+                </div>
+            </nav>
+        </header>
+    </section>
+    <!--Nav bar end-->
+    <div class="container-gallery">
+        <img src="img/tourPlaces/natre2.jpg" alt="Beautiful Landscape" data-details="Lorem ipsasdasda asdasfasfu">
+        <img src="img/tourPlaces/natre2.jpg" alt="City Skyline" data-details="The city lights shining bright.">
+        <img src="img/tourPlaces/nature4.jpg" alt="Mountain View" data-details="A serene mountain scene.">
+        <img src="img/tourPlaces/nature_3.jpg" alt="Sunset Beach" data-details="The sun setting over the horizon.">
+        <img src="img/tourPlaces/nature_7.jpg" alt="Forest Path" data-details="A peaceful walk through the woods.">
+        <img src="img/tourPlaces/nature_8.jpg" alt="Waterfall" data-details="The majestic beauty of Ella waterfall.">
+        <img src="img/pehesaralanka.jpg" alt="Sri Lankan Heritage" data-details="The cultural heritage of Sri Lanka.">
+        <img src="img/THINGS TO DO 1.jpg" alt="City Skyline" data-details="The city lights shining bright.">
+        <img src="img/tourPlaces/Sigiriya.jpg" alt="Mountain View" data-details="A serene mountain scene.">
+        <img src="img/tourPlaces/nature_8.jpg" alt="Sunset Beach" data-details="The sun setting over the horizon.">
+        <img src="img/bg2.jpg" alt="Forest Path" data-details="A peaceful walk through the woods.">
+        <img src="img/THINGS TO DO 2.jpg" alt="City Skyline" data-details="The city lights shining bright.">
+        <img src="img/THINGS TO DO 9.jpg" alt="Mountain View" data-details="A serene mountain scene.">
+        <img src="img/tourPlaces/nature_7.jpg" alt="Sunset Beach" data-details="The sun setting over the horizon.">
+        <img src="img//tourPlaces/nature_3.jpg" alt="Forest Path" data-details="A peaceful walk through the woods.">
+        <img src="img/tourPlaces/nature4.jpg" alt="City Skyline" data-details="The city lights shining bright.">
+        <img src="img/tourPlaces/Nature.jpg" alt="Mountain View" data-details="A serene mountain scene.">
+        <img src="img/tourPlaces/kandy.jpg" alt="Sunset Beach" data-details="The sun setting over the horizon.">
+        <img src="img/tourPlaces/Heritage places.jpg" alt="Forest Path" data-details="A peaceful walk through the woods.">
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" id="lightboxClose">&times;</span>
+        <img id="lightboxImg" src="" alt="">
+        <div class="details" id="lightboxDetails"></div>
+    </div>
+
+    <!--Footer start-->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <a href="#">
+                    <img src="img/logo.png" alt="pehesaralanka Tours" height="100" width="100" style="object-fit: contain" />
+                                <h2 style="margin-bottom: 5px;">pehesaralanka Tours</h2>
+                    <p style="margin-bottom: 0px;">Private Sri Lanka Tours</p>
+                </a>
+                <div class="payment-section">
+                     <img
+                         src="img/THINGS TO DO 3.jpg"
+                         alt="visa" />
+                     <img src="img/THINGS TO DO 5.jpg"
+                         alt="mastercard" />
+                 </div>
+            </div>
+            <div>
+                <h2>pehesaralanka Tours (Pvt) Ltd.,</h2>
+                <p>Example ereer eaerae</p>
+                <p> Colombo Road, Colombo 3www</p>
+                <p>Sri Lanka</p>
+                <p>Tel: +94 76 468 3423</p>
+                <p>E-mail: <a href="mailto:inquiries@pehesaralanka.com" style="text-decoration: underline;">inquiries@pehesaralanka.com</a></p>
+           </div>
+           <div>
+               <h2>Examples & and</h2>
+               <ul>
+                 <li><a href="#">Lets gooo</a></li>
+               <li><a href="#"> Discounts & Terms</a></li>
+              </ul>
+           </div>
+           <div>
+              <h2>Terms & Privacy</h2>
+               <ul>
+                  <li><a href="#">Terms & Conditions</a></li><li><a href="#">Privacy Policy</a></li>
+               </ul>
+           </div>
+            <div>
+               <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Travel FAQs</a></li>
+                  <li><a href="#">Top Destinations</a></li>
+                  <li><a href="#">What to Pack</a></li>
+                </ul>
+          <h2 style="margin: 20px 0 10px;">Get the latest updates on pehesaralanka</h2>
+               <div class="social-icons-footer">
+                      <a href="https://www.facebook.com/tourslanka" aria-label="Facebook" target="_blank">
+                           <i class="fab fa-facebook-f"></i>
+                       </a>
+                       <a href="https://www.instagram.com/tourslankavacations/" aria-label="Instagram"    target="_blank">
+                           <i class="fab fa-instagram"></i>
+                     </a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <p class="copyright-bottom">© 2000 - 2025 pehesaralanka All rights reserved.</p>
+            <p>Solution By <a href="#">Vijayan Gobiharan & Dilan Rashmika</a></p>
+        </div>
+    </footer>
+    <!--Footer end-->
+
+    <script src="Gallery.js"></script>
+</body>
+</html>
