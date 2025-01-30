@@ -243,7 +243,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
     display: flex;
     color: #fff;
     height: 60vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/tourPlaces/kandy.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('/img/tourPlaces/kandy.jpg') no-repeat center center/cover;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -255,7 +255,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
     font-weight: bold;
     display: inline-flex;
     align-items: center;
-    background-image: url('img/tourPlaces/nature_3.jpg'); /* Image as background */
+    background-image: url('/img/tourPlaces/nature_3.jpg'); /* Image as background */
     background-size: cover;
     -webkit-background-clip: text;  /* Clips the background to the text */
     color: transparent; /* Makes the text color transparent so background image shows through */
