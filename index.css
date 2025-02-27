@@ -5,8 +5,8 @@
     --glass-shadow: rgba(0, 0, 0, 0.2);
     --main-color: #fff;
     --hover-color: rgba(255, 255, 255, 0.6);
-    --primary-color: #215582;
-    --nav-background-color: #215582;
+    --primary-color: #29ade4;
+    --nav-background-color:#394997;
     --glass-shadow-black: rgba(0, 0, 0, 0.9);
     
 
@@ -90,63 +90,67 @@ header.glass-effect {
     margin-top: 15px;
     border-radius: 12px;
     backdrop-filter: blur(12px);
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-header nav {
-    display: flex;
-    justify-content: space-around;
+.flex_special{
+   display: flex;
+   justify-content: space-around;
     align-items: center;
-    padding: 10px 2px;
+    padding: 10px 2px; 
 }
 
 .contact-items {
-    display: flex;
-    align-items: flex-start;
-    flex-direction:row;
-    gap: 18px;
-    margin-top: 5px;
-    padding: 15px 10px;
-    border-radius: 12px 0 12px 0;
-    transition: background-color 0.3s ease;
-    background: #ffffff;
+  display: flex;
+  justify-content: flex-start; /* Aligns child items to the left */
+  width: 480px;
+  gap: 18px;
+  margin: 20px 0 20px auto; /* Top: 20px, Right: 0, Bottom: 20px, Left: 320px */
+  padding: 5px 15px;
+  border-radius: 12px 0 12px 0;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
 }
-
-
 .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: var(--);
-    font-size: 13px;
-    transition: color 0.3s ease, transform 0.3s ease,  backdrop-filter 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--); 
+  font-size: 13px;
+  transition: color 0.3s ease, transform 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .contact-item:hover {
-    color: var(--primary-color);
-    transform: translateX(2px);
+    color: #000;
 
 }
 
 .contact-item.glass-contact {
     color: #000;
-    backdrop-filter: blur(0px); /* Apply blur on the contact*/
-    transition: color 0.3s ease, transform 0.3s ease,  backdrop-filter 0.3s ease; /* Added transition */
+    backdrop-filter: blur(0px); 
+    transition: color 0.3s ease, transform 0.3s ease,  backdrop-filter 0.3s ease;
 }
 
 .contact-item.glass-contact:hover {
    color: var(--primary-color);
-   background-color: rgba(255, 255, 255, 0.1); /* Blur background */
+   background-color: rgba(255, 255, 255, 0.5); /* Blur background */
    backdrop-filter: blur(3px); /* Apply blur on hover */
 }
 .contact-item i {
     font-size: 16px;
 }
+.contact_btn{
+  padding:12px;
+  text-decoration: none;
+  border-radius: 12px;
+  color:white;
+  background-color: green;
+}
 
 /* Logo Styles (Modified) */
 .nav-brand img {
-    height: 80px;
+    height: 110px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -180,12 +184,12 @@ header nav .nav-links-container ul li a {
 
 header nav .nav-links-container ul li a:hover {
     background-color: var(--hover-color);
-    color: var(--primary-color);
+    color: #000;
 }
 
 header nav .nav-links-container ul li a.active {
     background-color: #807a7a ;
-    color:#fff;
+    color:#000000;
 }
 
 header nav .nav-links-container ul li a.glass-link {
@@ -454,70 +458,85 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
 
 
 .about-info {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 100px 40px;
-    text-align: center;
-    box-sizing: border-box;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out 0.5s forwards; /* Fade-in animation for the section */
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 40px;
+  text-align: center;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 0.5s forwards;
 }
 
 @keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+  to {
+      opacity: 1;
+  }
 }
 
 .about-info h1 {
-    text-transform: uppercase;
-    color: #000000;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-    transform: translateY(30px);
-    /* Initial offset for the slide animation */
-    opacity: 0;
-    /* Initial opacity */
-    animation: slideInHeader 0.8s ease-out 1s forwards;
-    /* Animation applied to header */
+  text-transform: uppercase;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(30px);
+  opacity: 0;
+  background-clip: text;
+  background:#29ade4;
+  animation: slideInHeader 2s ease-out 0.2s forwards, 
+             revealText 2s ease-in-out infinite alternate; /* Combined animation */
 }
 
 @keyframes slideInHeader {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes revealText {
+  0% {
+      color: white;
+  }
+  100% {
+      color: black;
+  }
 }
 
 .about-info h1::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-color);
-    z-index: -1;
-    animation: reveal 2s ease-in-out infinite alternate;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #394997;
+  z-index: -1;
+  animation: reveal 2s ease-in-out infinite alternate;
 }
 
 @keyframes reveal {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(100%);
+  }
 }
+
+/* Define variables */
+
+
+/* Define variables for completeness */
+
+
+
 
 .about-info p {
     color: #000000;

@@ -33,18 +33,18 @@ document.addEventListener('DOMContentLoaded', function () {
 // Scroll-Based Glass Effect and Link Color Change
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
-      const navLinks = document.querySelectorAll('header nav .nav-links-container ul li a');
+     // const navLinks = document.querySelectorAll('header nav .nav-links-container ul li a');
         const contactItems = document.querySelectorAll('.contact-item');
     if (window.scrollY > 50) {
         header.classList.add('glass-effect');
-         navLinks.forEach(link=>link.classList.add('glass-link'));
+      //   navLinks.forEach(link=>link.classList.add('glass-link'));
            contactItems.forEach(item=> {
             item.classList.add('glass-contact');
            });
            
     } else {
         header.classList.remove('glass-effect');
-          navLinks.forEach(link=>link.classList.remove('glass-link'));
+      //    navLinks.forEach(link=>link.classList.remove('glass-link'));
           contactItems.forEach(item=> {
               item.classList.remove('glass-contact');
         });

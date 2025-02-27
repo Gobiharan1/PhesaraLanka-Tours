@@ -41,199 +41,216 @@ header {
 }
 
 /* Header Styles with glass effect (will be toggled) */
-header.glass-effect {
-    font-size: small;
-    width: 85%;
-    margin:75px;
-    margin-top: 15px;
-    border-radius: 12px;
-    backdrop-filter: blur(12px);
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--nav-background-color);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px var(--glass-shadow);
+  padding: 10px 20px;
+  transition: background 0.5s ease, margin-top 0.5s ease, margin 0.5s ease, width 0.5s ease;
 }
 
-header nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 2px;
+/* Header Styles with glass effect (will be toggled) */
+header.glass-effect {
+  font-size: small;
+  width: 85%;
+  margin:75px;
+  margin-top: 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.flex_special{
+ display: flex;
+ justify-content: space-around;
+  align-items: center;
+  padding: 10px 2px; 
 }
 
 .contact-items {
-    display: flex;
-    align-items: flex-start;
-    flex-direction:row;
-    gap: 18px;
-    margin-top: 5px;
-    padding: 15px 10px;
-    border-radius: 12px 0 12px 0;
-    transition: background-color 0.3s ease;
-    background: #ffffff;
+display: flex;
+justify-content: flex-start; /* Aligns child items to the left */
+width: 480px;
+gap: 18px;
+margin: 20px 0 20px auto; /* Top: 20px, Right: 0, Bottom: 20px, Left: 320px */
+padding: 5px 15px;
+border-radius: 12px 0 12px 0;
+background-color: #fff;
+transition: background-color 0.3s ease;
 }
-
-
 .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: var(--);
-    font-size: 13px;
-    transition: color 0.3s ease, transform 0.3s ease,  backdrop-filter 0.3s ease;
+display: flex;
+align-items: center;
+gap: 5px;
+color: var(--); 
+font-size: 13px;
+transition: color 0.3s ease, transform 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .contact-item:hover {
-    color: var(--primary-color);
-    transform: translateX(2px);
+  color: #000;
 
 }
 
 .contact-item.glass-contact {
-    color: #000;
-    backdrop-filter: blur(0px); /* Apply blur on the contact*/
-    transition: color 0.3s ease, transform 0.3s ease,  backdrop-filter 0.3s ease; /* Added transition */
+  color: #000;
+  backdrop-filter: blur(0px); 
+  transition: color 0.3s ease, transform 0.3s ease,  backdrop-filter 0.3s ease;
 }
 
 .contact-item.glass-contact:hover {
-   color: var(--primary-color);
-   background-color: rgba(255, 255, 255, 0.1); /* Blur background */
-   backdrop-filter: blur(3px); /* Apply blur on hover */
+ color: var(--primary-color);
+ background-color: rgba(255, 255, 255, 0.5); /* Blur background */
+ backdrop-filter: blur(3px); /* Apply blur on hover */
 }
 .contact-item i {
-    font-size: 16px;
+  font-size: 16px;
+}
+.contact_btn{
+padding:12px;
+text-decoration: none;
+border-radius: 12px;
+color:white;
+background-color: green;
 }
 
 /* Logo Styles (Modified) */
 .nav-brand img {
-    height: 80px;
-    width: auto;
-    transition: transform 0.3s ease;
+  height: 110px;
+  width: auto;
+  transition: transform 0.3s ease;
 }
 
 .nav-brand:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* Navigation Links Styles (Modified) */
 header nav .nav-links-container ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
 }
 
 header nav .nav-links-container ul li {
-    position: relative;
+  position: relative;
 }
 
 header nav .nav-links-container ul li a {
-    font-family: "Fira Sans", Arial, sans-serif;
-    z-index: 2000;
-    text-decoration: none;
-    color: var(--main-color);
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Fira Sans", Arial, sans-serif;
+  z-index: 2000;
+  text-decoration: none;
+  color: var(--main-color);
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header nav .nav-links-container ul li a:hover {
-    background-color: var(--hover-color);
-    color: var(--primary-color);
+  background-color: var(--hover-color);
+  color: #000;
 }
 
 header nav .nav-links-container ul li a.active {
-    background-color: #807a7a ;
-    color:#fff;
+  background-color: #807a7a ;
+  color:#000000;
 }
 
 header nav .nav-links-container ul li a.glass-link {
-    /* link color when glass is active */
-    color: #000;
+  /* link color when glass is active */
+  color: #000;
 }
 
 /* Dropdown Menu Styles */
 .nav-links-container ul li {
-  position: relative; /* Needed for absolute positioning of the dropdown */
+position: relative; /* Needed for absolute positioning of the dropdown */
 }
 /* Updated Dropdown Menu Styles with arrow and images */
 
 /* Parent List Item */
 .nav-links-container ul li {
-  position: relative;
+position: relative;
 }
 
 
 /* The trigger link */
 .nav-links-container ul li a#displayBox {
- position: relative;
+position: relative;
 
 }
 
 /* Arrow Indicator Style */
 
 .nav-links-container ul li a#displayBox::after {
-  content: '\25BC'; /* Unicode for a down-pointing triangle */
-  font-size: 10px;
-  margin-left: 5px;
-  display: inline-block;
-  transition: transform 0.3s ease;
-  color: var(--main-color);
+content: '\25BC'; /* Unicode for a down-pointing triangle */
+font-size: 10px;
+margin-left: 5px;
+display: inline-block;
+transition: transform 0.3s ease;
+color: var(--main-color);
 }
 
 .nav-links-container ul li:hover a#displayBox::after {
-  transform: rotate(180deg);
+transform: rotate(180deg);
 }
 
 
 /* Dropdown menu */
 .nav-links-container ul li .dropdown-menu-menue {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: var(--nav-background-color);
-  border: 1px solid var(--glass-border);
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px var(--glass-shadow);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  z-index: 1100;
-  white-space: nowrap;
-  min-width: 200px; /* Increase for content */
-  /* Add new */
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+background: var(--nav-background-color);
+border: 1px solid var(--glass-border);
+border-radius: 5px;
+box-shadow: 0px 4px 8px var(--glass-shadow);
+list-style: none;
+padding: 0;
+margin: 0;
+z-index: 1100;
+white-space: nowrap;
+min-width: 200px; /* Increase for content */
+/* Add new */
 }
 
 .nav-links-container ul li:hover .dropdown-menu-menue {
-  display: block;
+display: block;
 }
 
 /* Dropdown List items with images */
 .nav-links-container ul li .dropdown-menu-menue li a {
-  display: flex; /* Added Flex */
-  align-items: center;
-  gap: 8px;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: var(--main-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  white-space: nowrap;
+display: flex; /* Added Flex */
+align-items: center;
+gap: 8px;
+padding: 10px 15px;
+text-decoration: none;
+color: var(--main-color);
+transition: background-color 0.3s ease, color 0.3s ease;
+white-space: nowrap;
 }
 .nav-links-container ul li .dropdown-menu-menue li a img {
-  width: 25px;
-  height: 25px;
-  object-fit: cover;
-  border-radius: 4px;
+width: 25px;
+height: 25px;
+object-fit: cover;
+border-radius: 4px;
 } /* New image styles */
 
 
 .nav-links-container ul li .dropdown-menu-menue li a:hover {
-  background-color: var(--hover-color);
-  color: var(--primary-color);
+background-color: var(--hover-color);
+color: var(--primary-color);
 }
 
 header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
-  color:#000;
+color:#000;
 }
 /*nav bar finished*/
 
@@ -246,23 +263,24 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 150px;
     background-size: cover;
     background-position: center;
     position: relative;
   }
   
   .EllaBanner h1 {
-    font-size: 11rem;
+    font-size: 8rem;
     font-weight: bold;
     display: inline-flex;
     align-items: center;
-    background-image: url('img/tourPlaces/nature4.jpg'); /* Image as background */
+    background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
+    color: transparent; /* Makes the text transparent so the gradient shows */
+    -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
+    background-clip: text; /* Standard property for broader support */
     background-size: cover;
-    -webkit-background-clip: text;  /* Clips the background to the text */
-    background-clip: text;  /* Standard property for compatibility */
-    color: transparent; /* Makes the text color transparent so background image shows through */
-    margin-bottom: 2rem;
+    position: absolute;
+    margin-bottom: 6rem;
   }
 /*ella banner end*/
 
