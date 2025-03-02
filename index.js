@@ -205,3 +205,5 @@ card.style.opacity = 0;
 card.style.transform = 'translateY(20px)';
 observer.observe(card);
 });
+
+
