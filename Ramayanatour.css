@@ -427,6 +427,24 @@
   .itinerary-content.active {
       display: block;
 }
+.itinerary-details{
+  display: flex;
+}
+.itinerary-description ul{
+  list-style-type: none;
+  }
+.itinerary-description{
+  padding-top: 35px;
+  align-items: center;
+}
+.section-image {
+  width: 400px;
+  height: 300px; /* Define a height */
+  background-size: cover; /* Optional: Scales the image to cover the div */
+  background-position: center; /* Optional: Centers the image */
+}
+
+  
   .day-container {
       margin-bottom: 25px;
       padding: 15px 0;
