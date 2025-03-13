@@ -1,3 +1,13 @@
+function updateDisplay(value) {
+    const displayBox = document.getElementById('tourSelect');
+    if (value === "All your tours") {
+        console.log("Showing all tours"); // Replace with your logic
+    } else {
+        console.log("Selected tour: " + value); // Replace with your logic
+    }
+    // Optionally update the displayBox or other UI elements here
+}
+
 
 function updateDisplay(text) {
     document.getElementById('displayBox').textContent = text;
@@ -56,36 +66,61 @@ window.addEventListener('scroll', function() {
 
 
 //slider 
-const swiper = new Swiper('.swiper-container', {
-  loop: true,
-  autoplay: {
-    delay: 1500,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  grabCursor: true,
-  effect: {
-    name: 'slide', 
-    easing: 'linear',
-  },
-  speed: 1500,
-  slidesPerView: 3, // Fixed number of slides visible (no breakpoints)
+document.addEventListener("DOMContentLoaded", function () {
+    function initializeSlider(sliderId) {
+        const slider = document.getElementById(sliderId);
+        const track = slider.querySelector(".slider-track");
+        const prevArrow = slider.querySelector(".prev-arrow");
+        const nextArrow = slider.querySelector(".next-arrow");
+        const dotsContainer = document.getElementById(`dots${sliderId.slice(-1)}`);
+        const cards = slider.querySelectorAll(".tour-card");
+
+        let index = 0;
+        const totalCards = cards.length;
+        const visibleCards = window.innerWidth > 1024 ? 4 : window.innerWidth > 767 ? 3 : 2;
+        const step = 100 / visibleCards;
+
+        // Create indicator dots
+        for (let i = 0; i < Math.ceil(totalCards / visibleCards); i++) {
+            const dot = document.createElement("span");
+            dot.classList.add("slider-dot");
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = dotsContainer.querySelectorAll(".slider-dot");
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${index * step}%)`;
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[Math.floor(index / visibleCards)]?.classList.add("active");
+        }
+
+        function goToSlide(slideIndex) {
+            index = slideIndex * visibleCards;
+            updateSlider();
+        }
+
+        nextArrow.addEventListener("click", () => {
+            if (index + visibleCards < totalCards) {
+                index++;
+                updateSlider();
+            }
+        });
+
+        prevArrow.addEventListener("click", () => {
+            if (index > 0) {
+                index--;
+                updateSlider();
+            }
+        });
+    }
+
+    initializeSlider("slider1");
+    initializeSlider("slider2");
 });
-// Pause autoplay on hover
-const swiperContainer = document.querySelector('.swiper-container');
-swiperContainer.addEventListener('mouseenter', () => {
-  swiper.autoplay.stop();
-});
-swiperContainer.addEventListener('mouseleave', () => {
-  swiper.autoplay.start();
-});
+
 //ella tours
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -159,51 +194,47 @@ if(firstTab){
 
 
 //Things to do 
-document.addEventListener('DOMContentLoaded', function() {
-  // Pinterest-style hover effect
-  document.querySelectorAll('.blog-card').forEach(card => {
-      card.addEventListener('mouseenter', function() {
-          this.style.zIndex = 10;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      speed: 800,
+      coverflowEffect: {
+        rotate: 40, 
+        stretch: 50, 
+        depth: 200, 
+        modifier: 1.5,
+        slideShadows: true,
+      },
+      parallax: true, 
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      loop: true,
+      autoplay: {
+        delay: 3000, // Auto-flow every 3 seconds
+        disableOnInteraction: false, // Continues after interaction
+      },
+    });
+
+    // Enhance parallax effect on scroll
+    swiper.on('progress', function () {
+      const slides = document.querySelectorAll('.swiper-slide');
+      slides.forEach((slide) => {
+        const img = slide.querySelector('img');
+        const parallaxAmount = slide.getAttribute('data-swiper-parallax') || 0;
+        img.style.transform = `translateZ(20px) translateX(${parallaxAmount * this.progress * 100}px)`;
       });
-      
-      card.addEventListener('mouseleave', function() {
-          this.style.zIndex = 1;
-      });
+    });
   });
 
-  // Lazy loading for images
-  const lazyImages = document.querySelectorAll('.card-image');
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              const img = entry.target;
-              img.src = img.dataset.src;
-              observer.unobserve(img);
-          }
-      });
-  });
-
-  lazyImages.forEach(img => {
-      img.dataset.src = img.src;
-      img.src = '';
-      observer.observe(img);
-  });
-});
-
-const cards = document.querySelectorAll('.blog-card');
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if(entry.isIntersecting) {
-  entry.target.style.opacity = 1;
-  entry.target.style.transform = 'translateY(0)';
-}
-});
-}, { threshold: 0.1 });
-
-cards.forEach(card => {
-card.style.opacity = 0;
-card.style.transform = 'translateY(20px)';
-observer.observe(card);
-});
 
 

@@ -8,6 +8,11 @@
     --primary-color: #29ade4;
     --nav-background-color:#394997;
     --glass-shadow-black: rgba(0, 0, 0, 0.9);
+
+    --card-width-desktop: 23%;  
+    --card-width-tablet: 33.33%;  
+    --card-width-mobile: 100%;  
+    --card-height: 400px;
     
 
 }
@@ -49,7 +54,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Fira Sans", sans-serif;
-    padding-top: 120px;
+    padding-top: 100;
     box-sizing: border-box;
 }
 
@@ -58,7 +63,7 @@ body {
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     animation: changeBg 15s infinite;
     display: flex;
     justify-content: center;
@@ -68,27 +73,27 @@ body {
 
 @keyframes changeBg {
     0% {
-        background-image: url('img/tourPlaces/Beach.jpg');
+      background-image: url('img/tourPlaces/Sigriya.jpg');
     }
 
     20% {
-        background-image: url('img/tourPlaces/kandy.jpg');
+        background-image: url('img/tourPlaces/perhara\ k.jpg');
     }
 
     40% {
-        background-image: url('img/tourPlaces/Heritage\ places.jpg');
+        background-image: url('img/tourPlaces/pinawala.jpg');
     }
 
     60% {
-        background-image: url('img/tourPlaces/natre2.jpg');
+        background-image: url('img/tourPlaces/rock.jpg');
     }
 
     80% {
-        background-image: url('img/tourPlaces/Sigiriya.jpg');
+      background-image: url('img/tourPlaces/Beach.jpg');
     }
 
     100% {
-        background-image: url('img/tourPlaces/Nature.jpg');
+        background-image: url('img/tourPlaces/Tea.jpg');
     }
 }
 
@@ -101,7 +106,7 @@ header {
     background: var(--nav-background-color);
     border-bottom: 1px solid var(--glass-border);
     box-shadow: 0 4px 6px var(--glass-shadow);
-    padding: 10px 20px;
+    padding: 10px 10px;
     transition: background 0.5s ease, margin-top 0.5s ease, margin 0.5s ease, width 0.5s ease;
 }
 
@@ -109,37 +114,52 @@ header {
 header.glass-effect {
     font-size: small;
     width: 85%;
-    margin:75px;
+    margin:5px;
     margin-top: 15px;
     border-radius: 12px;
     backdrop-filter: blur(12px);
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.5);
-}
+}   
 
 .flex_special{
    display: flex;
    justify-content: space-around;
     align-items: center;
-    padding: 10px 2px; 
+    padding: 2px 2px; 
 }
 
 .contact-items {
   display: flex;
-  justify-content: flex-start; /* Aligns child items to the left */
-  width: 480px;
-  gap: 18px;
-  margin: 20px 0 20px auto; /* Top: 20px, Right: 0, Bottom: 20px, Left: 320px */
-  padding: 5px 15px;
-  border-radius: 12px 0 12px 0;
-  background-color: #fff;
-  transition: background-color 0.3s ease;
+  align-items: lef;
+  justify-content: flex-start;
+  gap: 1.125rem; 
+  width: min(100%, 30rem);
+  padding: 0.75rem 0.9375rem; 
+  padding-bottom: 5px;
+  background-color: #ffffff; 
+  border-radius: 0 0 1.25rem 1.25rem;
+  position: absolute; 
+  top: 0; 
+  left: 73.5%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  z-index: 10;
+  box-sizing: border-box;
 }
+
+
+.contact-items:hover {
+  background-color: #f8f9fa; /* Light grey for feedback */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Enhanced depth */
+}
+
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 5px;
-  color: var(--); 
+  gap: 2px;
+  color: var(--);
   font-size: 13px;
   transition: color 0.3s ease, transform 0.3s ease, backdrop-filter 0.3s ease;
 }
@@ -173,7 +193,7 @@ header.glass-effect {
 
 /* Logo Styles (Modified) */
 .nav-brand img {
-    height: 110px;
+    height: 90px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -261,11 +281,10 @@ header nav .nav-links-container ul li a.glass-link {
   top: 100%;
   left: 0;
   background: var(--nav-background-color);
-  border: 1px solid var(--glass-border);
+  border:none;
   border-radius: 5px;
-  box-shadow: 0px 4px 8px var(--glass-shadow);
   list-style: none;
-  padding: 0;
+  padding: 10px;
   margin: 0;
   z-index: 1100;
   white-space: nowrap;
@@ -298,7 +317,7 @@ header nav .nav-links-container ul li a.glass-link {
 
 .nav-links-container ul li .dropdown-menu-menue li a:hover {
   background-color: var(--hover-color);
-  color: var(--primary-color);
+  color:white;
 }
 
 header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
@@ -307,44 +326,75 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
 
 /*nav bar finished*/
 /* Dropdown Menu Styles (Modified for upward opening) */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    background: rgb(105, 102, 102);
-    border: 1px solid black;
-    box-shadow: 0 4px 6px black;
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    list-style: none;
-    padding: 15px;
-    border-radius: 8px;
-    min-width: 180px;
-    
+/* Wrapper for flex positioning and aesthetic alignment */
+.select-wrapper {
+  display: flex;
+  justify-content: center; /* Center the select horizontally */
+  align-items: center; /* Center vertically if needed */
+  width: 100%;
+  max-width: 300px; /* Adjust as needed */
+  margin: 20px auto; /* Centered with spacing */
 }
 
-.dropdown-menu li {
-    margin: 5px 0;
+/* Styling the select element */
+.tour-select {
+  appearance: none; /* Remove default browser styling */
+  width: 100%;
+  padding: 12px 40px 12px 15px; /* Extra right padding for arrow */
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff; /* White text for contrast */
+  background: linear-gradient(135deg, #5085b4 0%, #215582 100%); /* Matches tour card gradient */
+  border: none; /* Remove default border */
+  border-radius: 12px; /* Smooth, modern corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  backdrop-filter: blur(8px); /* Glass effect */
+  transition: all 0.3s ease; /* Smooth transitions */
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
-.dropdown-menu li a {
-    display: block;
-    padding: 10px 15px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+/* Hover and focus states */
+.tour-select:hover,
+.tour-select:focus {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on interaction */
+  outline: none; /* Remove default focus outline */
+  transform: translateY(-2px); /* Slight lift */
 }
 
-.dropdown-menu li a:hover {
-    background-color: var(--hover-color);
+/* Custom dropdown arrow */
+.tour-select {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* White arrow */
+  background-repeat: no-repeat;
+  background-position: right 15px center; /* Position arrow */
+  background-size: 20px; /* Arrow size */
 }
 
-/* remaining page styles (No Change) */
+/* Style the options (limited control, but some browsers respect this) */
+.tour-select option {
+  background: #215582; /* Darker background for options */
+  color: #ffffff; /* White text */
+  padding: 10px; /* Spacing */
+  font-size: 1rem;
+}
+
+/* Optional: Animation for select opening (not widely supported) */
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
 .imgBox {
-    backdrop-filter: blur(5px);
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(1px);
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     padding: 40px;
     width: 60%;
     margin: auto;
@@ -407,7 +457,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
 }
 
 /*search */
-.search {
+/* .search {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -439,7 +489,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
 
 .search:focus {
     outline: none;
-}
+} */
 
 .scroll-down-indicator {
     margin-top: 30px;
@@ -487,7 +537,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px 40px;
+  padding: 40px 180px;
   text-align: center;
   box-sizing: border-box;
   opacity: 0;
@@ -565,7 +615,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
     color: #000000;
     font-size: 1.2rem;
     line-height: 1.6;
-    max-width: 800px;
+    max-width: 1000px;
     transform: translateY(20px);
     /* Initial offset for paragraph slide */
     opacity: 0;
@@ -583,15 +633,15 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
 
 /*page3 jorney */
 .parallax {
-    height: 500px; /* Adjust as needed */
-    background-image: url('img/tourPlaces/nature4.jpg'); /* Replace with your image path */
+    background-image: url('img/maligawa.jpg'); 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative; /* For absolute positioning of content */
-    overflow: hidden; /* Prevents content from overflowing background */
+    position: relative; 
+    overflow: hidden; 
   }
+  
   /*  added a linear-gradient for a nice dark overlay and added a background color */
   .parallax::before {
       content: "";
@@ -717,16 +767,12 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
     font-family: 'Fira Sans', sans-serif;
     font-size: 4rem;
     font-weight: 700;
-    margin-bottom: 20px;
     width: 100%;
     height: 100%;
 }
 .gallery-container {
-    margin: 0;
-    padding: 0;
-    margin-top: 75px;
-    margin-left: 90px;
-    margin-right: 90px;
+  padding: 40px 180px;
+    margin: 0 140px;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -815,125 +861,204 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
 /*Gallerry end*/
 
 /*slider start one start*/
-/*day tours*/
 .slider-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 90px auto;
-  padding: 20px;
-  position: relative; /* Constrain arrows and dots */
-  overflow: hidden; /* Prevent overflow */
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
+
 .slider-title {
   text-align: center;
-  color: #2a2a2a;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  padding-top: 20px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-.swiper-container {
+  color: #000000;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
   width: 100%;
-  height: 100%; /* Ensure slider takes up full height */
-  padding: 20px;
+  height: 100%;
 }
 
-.swiper-slide {
-  background: #5085b4;
-  border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+.slider-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+.slider-wrapper {
+  position: relative;
   overflow: hidden;
-  text-align: center;
-  padding: 20px;
-  margin: 0 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.swiper-slide img {
+.slider-track {
+  display: flex;
+  transition: transform 0.7s ease;
+}
+
+.tour-card {
+  flex: 0 0 var(--card-width-desktop);
+  padding: 10px;
+  min-width: 0;
+  height: var(--card-height);
+}
+
+.tour-card-inner {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.tour-card-inner:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.tour-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 15px 15px 0 0;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
-.swiper-slide h3 {
-  margin: 15px 0 10px;
-  font-size: 1.5rem;
-  color: #ffffff;
+.tour-content {
+  padding: 20px;
+  background: white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.swiper-slide p {
-  font-size: 1rem;
-  color: #ffffff;
-  margin-bottom: 15px;
+.tour-content h3 {
+  margin: 0 0 15px;
+  color: #333;
+  font-size: 1.2em;
 }
 
-.swiper-slide button {
-  background: #215582;
-  color: #fff;
-  border: none;
+.tour-content p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.tour-content button {
   padding: 10px 20px;
-  border-radius: 25px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 15px;
   transition: background 0.3s ease;
+  font-weight: 500;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.swiper-slide button:hover {
-  background: #215582;
+.tour-content button:hover {
+  background: var(--secondary-color);
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.tour-content button i {
+  margin-left: 8px;
+}
+
+.nav-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  background: white;
+  color: #333;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
   z-index: 10;
-
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-arrow:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.prev-arrow {
+  left: 10px;
+}
+
+.next-arrow {
+  right: 10px;
+}
+
+.slider-indicators {
   display: flex;
   justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
 }
 
-.swiper-button-next {
-  right: 10px; /* Position next arrow */
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.swiper-button-prev {
-  left: 10px; /* Position previous arrow */
+.slider-dot.active {
+  background: var(--primary-color);
+  transform: scale(1.3);
 }
 
-.swiper-pagination {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+@media (max-width: 1024px) {
+  .tour-card {
+      flex: 0 0 var(--card-width-tablet);
+  }
 }
 
-.swiper-pagination-bullet {
-  background: #215582;
-  opacity: 0.5;
-  width: 12px;
-  height: 12px;
-  margin: 0 8px !important;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+@media (max-width: 767px) {
+  .tour-card {
+      flex: 0 0 50%;  /* 2 cards on smaller screens */
+  }
 }
 
-.swiper-pagination-bullet-active {
-  opacity: 1;
-  transform: scale(1.2);
+@media (max-width: 480px) {
+  .tour-card {
+      flex: 0 0 var(--card-width-mobile);
+  }
+  
+  .slider-title {
+      font-size: 1.5rem;
+  }
+  
+  :root {
+      --card-height: 350px;
+  }
 }
 /*slider end*/
 /*paralex effact2*/
 .container-parallax2 {
+    padding: 40px 180px;
     margin: 0;
     font-family: 'Roboto', sans-serif;
     color: #333;
@@ -987,7 +1112,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
       left: 0;
       width: 100%;
       height: 100%;
-    background-image: url('img/tourPlaces/nature5.jpg');
+    background-image: url('img/elephants.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -1080,7 +1205,6 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
     font-family: 'Nunito', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e6f5ff;
     color: #2e3e5e;
     display: flex;
     flex-direction: column;
@@ -1097,7 +1221,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
     width: 100%;
     height: 100%;
     z-index: -1;
-  /*  overflow: hidden; Added overflow for the parallax background*/
+
 }
 .backgroundLayer {
     position: absolute;
@@ -1166,7 +1290,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
     flex-wrap: wrap;
     justify-content: center;
       max-width: 100%;
-      margin: 20px auto;
+      margin: 40px auto;
      transform: translateZ(20px);
   }
   .featureItem {
@@ -1201,7 +1325,7 @@ header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link{
 .featureItem:hover .itemIcon {
      color: #00a1e2;
  }
-.featureItem .itemContent {
+.featureItem .itemContent { 
       padding: 15px;
     background-color: #fff;
      flex: 1;
@@ -1263,7 +1387,7 @@ from {
     footer {
       background-color: #222;
       color: #fff;
-      padding: 30px 0; /* Reduced padding for less height*/
+      padding: 30px 0;  
     font-size: 0.9rem;
       position: relative;
     overflow: hidden;
@@ -1283,21 +1407,27 @@ from {
         margin: 0 auto;
       padding: 0 20px;
         display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    position: relative;
-        gap: 20px;
+      /* grid-template-columns: 2fr 2fr 2fr 1fr; */
+      position: relative;
+          gap: 20px;
+  }
+  .footer-container{
+    display: flex;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
   }
   .footer-container > div{
     padding: 0 20px;
     }
   footer h2 {
-    font-size: 1.1rem; /* Decreased heading size*/
-        margin-bottom: 12px;/* Decreased spacing */
+    font-size: 1.1rem; 
+        margin-bottom: 12px;
     color: #eee;
   transition: all 0.3s ease-in-out;
     }
     footer h2:hover {
-        transform: scale(1.03); /* Slightly scale up less than before*/
+        transform: scale(1.03); 
     }
     footer p, footer a{
       font-size: 0.9rem; /* slightly smaller text size */

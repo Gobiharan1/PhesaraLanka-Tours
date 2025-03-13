@@ -17,40 +17,43 @@ setInterval(updateClock, 1000);
 
 // Active link Highlighting
 document.addEventListener('DOMContentLoaded', function () {
-  const navLinks = document.querySelectorAll('header nav .nav-links-container ul li a');
-  navLinks.forEach(link => {
-      link.addEventListener('click', function(event) {
-          navLinks.forEach(lnk => lnk.classList.remove('active'));
-          this.classList.add('active');
-          // Only prevent default behavior for links with a `#` href
-          if (this.getAttribute('href') === '#') {
-              event.preventDefault();
-          }
-      });
-  });
-});
-
-// Scroll-Based Glass Effect and Link Color Change
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-     // const navLinks = document.querySelectorAll('header nav .nav-links-container ul li a');
-        const contactItems = document.querySelectorAll('.contact-item');
-    if (window.scrollY > 50) {
-        header.classList.add('glass-effect');
-      //   navLinks.forEach(link=>link.classList.add('glass-link'));
-           contactItems.forEach(item=> {
-            item.classList.add('glass-contact');
-           });
-           
-    } else {
-        header.classList.remove('glass-effect');
-      //    navLinks.forEach(link=>link.classList.remove('glass-link'));
-          contactItems.forEach(item=> {
-              item.classList.remove('glass-contact');
+    const navLinks = document.querySelectorAll('header nav .nav-links-container ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            navLinks.forEach(lnk => lnk.classList.remove('active'));
+            this.classList.add('active');
+            // Only prevent default behavior for links with a `#` href
+            if (this.getAttribute('href') === '#') {
+                event.preventDefault();
+            }
         });
-
-    }
-});
+    });
+  });
+  
+  // Scroll-Based Glass Effect and Link Color Change
+  window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      /*  const navLinks = document.querySelectorAll('header nav .nav-links-container ul li a'); */
+          const contactItems = document.querySelectorAll('.contact-item');
+      if (window.scrollY > 50) {
+          header.classList.add('glass-effect');
+         /*  navLinks.forEach(link=>link.classList.add('glass-link')); */
+             contactItems.forEach(item=> {
+              item.classList.add('glass-contact');
+             });
+             
+      } else {
+          header.classList.remove('glass-effect');
+         /*   navLinks.forEach(link=>link.classList.remove('glass-link')); */
+            contactItems.forEach(item=> {
+                item.classList.remove('glass-contact');
+          });
+  
+      }
+  });
+  
+  
+  
 
 //Gallery
 const galleryImages = document.querySelectorAll('.container-gallery img');
