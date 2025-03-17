@@ -8,63 +8,6 @@ function updateDisplay(value) {
     // Optionally update the displayBox or other UI elements here
 }
 
-
-function updateDisplay(text) {
-    document.getElementById('displayBox').textContent = text;
-}
-
-function updateDisplay2(text) {
-    document.getElementById('displayBox2').textContent = text;
-}
-function updateClock() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-}
-setInterval(updateClock, 1000);
-
-// Active link Highlighting
-document.addEventListener('DOMContentLoaded', function () {
-  const navLinks = document.querySelectorAll('header nav .nav-links-container ul li a');
-  navLinks.forEach(link => {
-      link.addEventListener('click', function(event) {
-          navLinks.forEach(lnk => lnk.classList.remove('active'));
-          this.classList.add('active');
-          // Only prevent default behavior for links with a `#` href
-          if (this.getAttribute('href') === '#') {
-              event.preventDefault();
-          }
-      });
-  });
-});
-
-// Scroll-Based Glass Effect and Link Color Change
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    /*  const navLinks = document.querySelectorAll('header nav .nav-links-container ul li a'); */
-        const contactItems = document.querySelectorAll('.contact-item');
-    if (window.scrollY > 50) {
-        header.classList.add('glass-effect');
-       /*  navLinks.forEach(link=>link.classList.add('glass-link')); */
-           contactItems.forEach(item=> {
-            item.classList.add('glass-contact');
-           });
-           
-    } else {
-        header.classList.remove('glass-effect');
-       /*   navLinks.forEach(link=>link.classList.remove('glass-link')); */
-          contactItems.forEach(item=> {
-              item.classList.remove('glass-contact');
-        });
-
-    }
-});
-
-
-
-
 //slider 
 document.addEventListener("DOMContentLoaded", function () {
     function initializeSlider(sliderId) {
@@ -79,9 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const totalCards = cards.length;
         const visibleCards = window.innerWidth > 1024 ? 4 : window.innerWidth > 767 ? 3 : 2;
         const step = 100 / visibleCards;
+        const maxIndex = Math.ceil(totalCards / visibleCards) - 1;
+
+        // Clear previous dots
+        dotsContainer.innerHTML = "";
 
         // Create indicator dots
-        for (let i = 0; i < Math.ceil(totalCards / visibleCards); i++) {
+        for (let i = 0; i <= maxIndex; i++) {
             const dot = document.createElement("span");
             dot.classList.add("slider-dot");
             if (i === 0) dot.classList.add("active");
@@ -93,8 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function updateSlider() {
             track.style.transform = `translateX(-${index * step}%)`;
+
+            // Update dot indicators
             dots.forEach(dot => dot.classList.remove("active"));
             dots[Math.floor(index / visibleCards)]?.classList.add("active");
+
+            // Disable arrows if necessary
+            prevArrow.style.opacity = index === 0 ? "0.5" : "1";
+            nextArrow.style.opacity = index >= maxIndex * visibleCards ? "0.5" : "1";
         }
 
         function goToSlide(slideIndex) {
@@ -103,18 +56,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         nextArrow.addEventListener("click", () => {
-            if (index + visibleCards < totalCards) {
-                index++;
+            if (index + visibleCards <= totalCards - 1) {
+                index += visibleCards;
                 updateSlider();
             }
         });
 
         prevArrow.addEventListener("click", () => {
-            if (index > 0) {
-                index--;
+            if (index - visibleCards >= 0) {
+                index -= visibleCards;
+                updateSlider();
+            } else {
+                index = 0;
                 updateSlider();
             }
         });
+
+        updateSlider(); // Ensure the initial state is correct
     }
 
     initializeSlider("slider1");
@@ -238,3 +196,76 @@ if(firstTab){
 
 
 
+//Gallery
+const galleryImages = document.querySelectorAll('.container-gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxDetails = document.getElementById('lightboxDetails');
+const lightboxClose = document.getElementById('lightboxClose');
+
+galleryImages.forEach(image => {
+    image.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = image.src;
+        lightboxImg.alt = image.alt;
+        lightboxDetails.textContent = image.getAttribute('data-details');
+    });
+});
+
+lightboxClose.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+// Close lightbox when clicking outside the image
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+    }
+});
+
+
+//Round Tours button function for days 
+
+
+    //Photography tours 
+    const tabss = document.querySelectorAll('.itinerary-tab');
+    const contentss = document.querySelectorAll('.itinerary-content');
+    const tourCardss = document.querySelectorAll('.tour-card');
+    tabss.forEach(tab => {
+        tab.addEventListener('click', () => {
+        const tabId = tab.getAttribute('data-tab');
+            tabss.forEach(t => {
+                t.classList.remove('active');
+                t.classList.remove('selected'); // Remove 'selected' class from all tabs
+            });
+            contentss.forEach(c => c.classList.remove('active'));
+            tab.classList.add('active');
+            tab.classList.add('selected'); // Add 'selected' class to the clicked tab
+            const activeContent = document.getElementById(tabId);
+            activeContent.classList.add('active');
+        animateDayContainers(activeContent);
+        });
+    });
+    function animateDayContainers(content) {
+        const dayContainers = content.querySelectorAll('.day-container');
+        dayContainers.forEach((container, index) => {
+                setTimeout(() => {
+                container.classList.add('active');
+            }, index * 150);
+        });
+    }
+    function animateTourCardss(){
+        tourCardss.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('active');
+            }, index * 150);
+    });
+    }
+    animateTourCardss();
+    const firstTabb = document.querySelector('.itinerary-tab.active');
+    if(firstTabb){
+        const tabId = firstTabb.getAttribute('data-tab');
+        const activeContent = document.getElementById(tabId);
+        animateDayContainers(activeContent);
+        firstTabb.classList.add('selected');
+    }
