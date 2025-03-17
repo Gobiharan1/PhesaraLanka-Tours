@@ -1,0 +1,300 @@
+ /*footer start*/
+ :root {
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: rgba(0, 0, 0, 0.2);
+  --main-color: #fff;
+  --hover-color: rgba(255, 255, 255, 0.6);
+  --primary-color: #29ade4;
+  --nav-background-color:#394997;
+  --glass-shadow-black: rgba(0, 0, 0, 0.9);
+
+ footer {
+    background-color: #222;
+    color: #fff;
+    padding: 30px 0;  
+  font-size: 0.9rem;
+    position: relative;
+  overflow: hidden;
+    width: 100%;
+  }
+footer::before {
+    content: "";
+      position: absolute;
+      top: 0;
+  left: 0;
+width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.15), transparent);
+  }
+.footer-container {
+  max-width: 1400px;
+      margin: 0 auto;
+    padding: 0 20px;
+      display: grid;
+    /* grid-template-columns: 2fr 2fr 2fr 1fr; */
+    position: relative;
+        gap: 20px;
+}
+.footer-container{
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+}
+.footer-container > div{
+  padding: 0 20px;
+  }
+footer h2 {
+  font-size: 1.1rem; 
+      margin-bottom: 12px;
+  color: #eee;
+transition: all 0.3s ease-in-out;
+  }
+  footer h2:hover {
+      transform: scale(1.03); 
+  }
+  footer p, footer a{
+    font-size: 0.9rem; /* slightly smaller text size */
+        line-height: 1.5; /* less spacing between lines*/
+      margin-bottom: 8px; /* less margin spacing*/
+    color: #999;
+    text-decoration: none;
+      transition: all 0.3s ease-in-out;
+  }
+    footer a:hover {
+        color: #0979e2;  /* hover text color*/
+        transform: translateX(3px);  /* less horizontal hover effect */
+      }
+    footer ul {
+        list-style: none;
+      padding-left: 0;
+    }
+  .social-icons-footer {
+            display: flex;
+              gap: 10px; /* Decreased spacing in social icons*/
+              margin-top: 10px; /* Reduced spacing top of social sections*/
+      }
+  .social-icons-footer a {
+        font-size: 1.3rem; /* reduced sizing from before*/
+          color: #555;
+          transition: all 0.3s ease-in-out;
+      }
+        .social-icons-footer a:hover {
+
+        color: #0979e2;
+        transform: translateY(-2px) ;  /* Decreased up of icons on hover */
+          }
+  .payment-section {
+        display: flex;
+      justify-content: flex-start;
+        align-items: baseline;
+      }
+      .payment-section img {
+          margin-right: 8px;   /* reduced space in image spacing*/
+          height: 28px;    /* reduced size of payment images*/
+          transition: all 0.3s ease-in-out;
+      }
+      .payment-section  img:hover {
+          transform: scale(1.05); /* smaller scaling effect when hovering*/
+    }
+.bottom-footer {
+      margin-top: 20px; /* Reduced margin-top on copyright section */
+      padding: 10px 20px 0;
+        display: flex;
+      justify-content: space-between;
+        border-top: 1px solid #333;
+  }
+.bottom-footer p, .bottom-footer a{
+      font-size: 0.7rem;   /* smaller font-size of text in copyright div */
+  }
+  .bottom-footer a:hover{
+      text-decoration: underline;/* underlining element when hovering */
+      }
+  .copyright-bottom  {
+      color: #777;
+      }
+  /* Adjust for Mobile Responsiveness*/
+  @media (max-width: 768px) {
+      .footer-container  {
+          grid-template-columns: 1fr; /* Stack columns */
+      }
+    .footer-container > div {
+          padding: 20px 0 10px 0;
+        text-align: center;
+    }
+    .social-icons-footer{
+          justify-content: center;/* make social icon div center */
+      }
+      .payment-section   {
+        justify-content: center;/* make payment logos center*/
+  }
+      .bottom-footer{
+          flex-direction: column;
+          align-items: center;
+        gap: 5px; /* spacing of bottom elements*/
+    }
+}
+
+ }
+  /*footer end*/
+
+  /* Responsive Styles */
+
+/* Large Tablets and Below (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .footer-container {
+    max-width: 1000px; /* Reduce max width */
+    gap: 15px; /* Slightly reduce gap */
+    padding: 0 15px; /* Adjust padding */
+  }
+
+  .footer-container > div {
+    padding: 0 15px; /* Reduce padding */
+  }
+
+  footer h2 {
+    font-size: 1rem; /* Slightly smaller heading */
+  }
+
+  footer p,
+  footer a {
+    font-size: 0.85rem; /* Slightly smaller text */
+  }
+
+  .social-icons-footer a {
+    font-size: 1.2rem; /* Slightly smaller icons */
+  }
+
+  .payment-section img {
+    height: 25px; /* Slightly smaller payment images */
+    margin-right: 6px; /* Reduce spacing */
+  }
+
+  .bottom-footer {
+    margin-top: 15px; /* Reduce margin */
+    padding: 8px 15px 0; /* Adjust padding */
+  }
+
+  .bottom-footer p,
+  .bottom-footer a {
+    font-size: 0.65rem; /* Slightly smaller font */
+  }
+}
+
+/* Tablets and Below (max-width: 768px) */
+@media (max-width: 768px) {
+  footer {
+    padding: 20px 0; /* Reduce padding */
+  }
+
+  .footer-container {
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Reduce gap */
+    padding: 0 10px; /* Reduce padding */
+  }
+
+  .footer-container > div {
+    padding: 15px 0; /* Adjust padding for vertical layout */
+    text-align: center; /* Center text */
+  }
+
+  footer h2 {
+    font-size: 0.95rem; /* Smaller heading */
+  }
+
+  footer p,
+  footer a {
+    font-size: 0.8rem; /* Smaller text */
+    margin-bottom: 6px; /* Reduce margin */
+  }
+
+  .social-icons-footer {
+    justify-content: center; /* Center icons */
+    gap: 8px; /* Reduce gap */
+    margin-top: 8px; /* Reduce top margin */
+  }
+
+  .social-icons-footer a {
+    font-size: 1.1rem; /* Smaller icons */
+  }
+
+  .payment-section {
+    justify-content: center; /* Center payment images */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 6px; /* Add small gap for spacing */
+  }
+
+  .payment-section img {
+    height: 22px; /* Smaller images */
+    margin-right: 5px; /* Reduce spacing */
+  }
+
+  .bottom-footer {
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center align */
+    gap: 5px; /* Spacing between items */
+    margin-top: 10px; /* Reduce margin */
+    padding: 6px 10px 0; /* Adjust padding */
+  }
+
+  .bottom-footer p,
+  .bottom-footer a {
+    font-size: 0.6rem; /* Smaller font */
+  }
+}
+
+/* Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  footer {
+    padding: 15px 0; /* Minimize padding */
+  }
+
+  .footer-container {
+    gap: 8px; /* Minimize gap */
+    padding: 0 5px; /* Minimize padding */
+  }
+
+  .footer-container > div {
+    padding: 10px 0; /* Minimize padding */
+  }
+
+  footer h2 {
+    font-size: 0.9rem; /* Smaller heading */
+  }
+
+  footer p,
+  footer a {
+    font-size: 0.75rem; /* Smaller text */
+    margin-bottom: 5px; /* Minimize margin */
+  }
+
+  .social-icons-footer {
+    gap: 6px; /* Minimize gap */
+    margin-top: 6px; /* Minimize top margin */
+  }
+
+  .social-icons-footer a {
+    font-size: 1rem; /* Smaller icons */
+  }
+
+  .payment-section {
+    gap: 4px; /* Minimize gap */
+  }
+
+  .payment-section img {
+    height: 20px; /* Smaller images */
+    margin-right: 4px; /* Minimize spacing */
+  }
+
+  .bottom-footer {
+    margin-top: 8px; /* Minimize margin */
+    padding: 5px 5px 0; /* Minimize padding */
+    gap: 4px; /* Minimize spacing */
+  }
+
+  .bottom-footer p,
+  .bottom-footer a {
+    font-size: 0.55rem; /* Smaller font */
+  }
+}
