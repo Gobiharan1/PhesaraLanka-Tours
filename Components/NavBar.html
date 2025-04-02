@@ -7,780 +7,399 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Styles - Modernized Tourism Theme */
-        :root {
-            --glassy-background: rgba(255, 255, 255, 0.15);
-            --glassy-border: rgba(255, 255, 255, 0.25);
-            --primary-accent-color: #004fe0;
-            --secondary-accent-color: #3b82f6;
-            --text-light-color: #ffffff;
-            --hover-state-color: #0ea5e9;
-            --shadow-effect: 0 10px 30px rgba(0, 0, 0, 0.15);
-            --gradient-bg: linear-gradient(135deg, rgba(45, 212, 191, 0.8), rgba(59, 130, 246, 0.8));
-        }
-
-        .site-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .site-header.header-scrolled {
-            padding: 10px 0;
-            background: rgba(13, 52, 89, 0.85);
-            backdrop-filter: blur(12px);
-        }
-
-        .navigation-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .nav-top-info-bar {
-            background: var(--gradient-bg);
-            padding: 10px 25px;
-            border-radius: 0 0 25px 25px;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 600px;
-            box-shadow: var(--shadow-effect);
-            border: 1px solid var(--glassy-border);
-            border-top: none;
-        }
-
-        .contact-info-items {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-info-item {
-            color: var(--text-light-color);
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-        }
-
-        .contact-info-item:hover,
-        .contact-info-item:focus {
-            transform: translateY(-2px) scale(1.05);
-            color: var(--text-light-color);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        .contact-info-item i {
-            font-size: 15px;
-            color: #f0f9ff;
-        }
-
-        .main-navigation {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--glassy-background);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glassy-border);
-            border-radius: 60px;
-            padding: 12px 35px;
-            margin-top: 45px;
-            box-shadow: var(--shadow-effect);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .main-navigation:hover {
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .site-logo-link img {
-            height: 60px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-        }
-
-        .site-logo-link:hover img,
-        .site-logo-link:focus img {
-            transform: scale(1.08) rotate(5deg);
-            filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15)) brightness(1.1);
-        }
-
-        .nav-links-area {
-            transition: all 0.3s ease;
-        }
-
-        .main-nav-links {
-            display: flex;
-            list-style: none;
-            gap: 22px;
-        }
-
-        .main-nav-links li a {
-            color: var(--text-light-color);
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            font-weight: 500;
-            position: relative;
-            display: block;
-            letter-spacing: 0.3px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .main-nav-links li a:hover,
-        .main-nav-links li a:focus {
-            background: rgba(255, 255, 255, 0.18);
-            color: var(--primary-accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .main-nav-links li a::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary-accent-color);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform: translateX(-50%);
-            opacity: 0;
-            border-radius: 2px;
-        }
-
-        .main-nav-links li a:hover::after,
-        .main-nav-links li a:focus::after {
-            width: 60%;
-            opacity: 1;
-        }
-
-        .cta-button {
-            background: var(--gradient-bg);
-            padding: 12px 28px;
-            border-radius: 30px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 6px 15px rgba(45, 212, 191, 0.3);
-            color: var(--text-light-color);
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            animation: pulse 2.5s infinite;
-        }
-
-        .cta-button:hover,
-        .cta-button:focus {
-            background: linear-gradient(135deg, rgba(45, 212, 191, 0.9), rgba(59, 130, 246, 0.9));
-            transform: translateY(-3px); /* Reduced for subtlety */
-            box-shadow: 0 8px 20px rgba(45, 212, 191, 0.4); /* Adjusted shadow */
-        }
-
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .dropdown-trigger::after {
-            content: '\f107';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 12px;
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-            opacity: 0.8;
-        }
-
-        .nav-dropdown:hover .dropdown-trigger::after,
-        .nav-dropdown.dropdown-active .dropdown-trigger::after {
-            transform: rotate(180deg);
-            opacity: 1;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: calc(100% + 15px);
-            left: 0;
-            background: rgba(13, 52, 89, 0.85);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glassy-border);
-            border-radius: 20px;
-            padding: 18px;
-            min-width: 300px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            list-style: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            overflow: hidden;
-            z-index: 1002; /* Ensure it's above other elements */
-        }
-
-        .nav-dropdown:hover .dropdown-content,
-        .nav-dropdown.dropdown-active .dropdown-content {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .dropdown-content::before {
-            content: '';
-            position: absolute;
-            top: -7px;
-            left: 25px;
-            width: 14px;
-            height: 14px;
-            background: rgba(13, 52, 89, 0.85);
-            transform: rotate(45deg);
-            border-top: 1px solid var(--glassy-border);
-            border-left: 1px solid var(--glassy-border);
-        }
-
-        .dropdown-content li {
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-content li:last-child {
-            margin-bottom: 0;
-        }
-
-        .dropdown-content li a {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 12px 18px;
-            font-size: 14px;
-            border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            color: var(--text-light-color);
-            text-decoration: none;
-        }
-
-        .dropdown-content li a:hover,
-        .dropdown-content li a:focus {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .dropdown-content li a img {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .dropdown-content li a:hover img,
-        .dropdown-content li a:focus img {
-            transform: scale(1.12) rotate(3deg);
-            border: 2px solid var(--primary-accent-color);
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1100;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-toggle:hover,
-        .menu-toggle:focus {
-            background: rgba(255, 255, 255, 0.15);
-            transform: scale(1.05);
-        }
-
-        .menu-toggle .toggle-bar {
-            width: 30px;
-            height: 3px;
-            background: var(--text-light-color);
-            border-radius: 4px;
-            transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-        }
-
-        .menu-toggle.toggle-active .toggle-bar:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-            background: var(--primary-accent-color);
-        }
-
-        .menu-toggle.toggle-active .toggle-bar:nth-child(2) {
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-
-        .menu-toggle.toggle-active .toggle-bar:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-            background: var(--primary-accent-color);
-        }
-
-        .main-nav-links li a.link-active {
-            background: var(--gradient-bg);
-            color: var(--text-light-color);
-            font-weight: 600;
-            box-shadow: 0 6px 15px rgba(45, 212, 191, 0.3);
-        }
-
-        .main-nav-links li a.link-active::after {
-            width: 0;
-            opacity: 0;
-        }
-
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .main-navigation {
-                padding: 10px 25px;
-                border-radius: 40px;
-            }
-            .main-nav-links{
-              gap: 12px;
-            }
-
-            .main-nav-links li a {
-                padding: 9px 16px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-                margin-right: 5px;
-            }
-
-            .nav-links-area {
-                position: absolute;
-                top: calc(100% + 15px);
-                left: 0;
-                width: 100%;
-                background: rgba(13, 52, 89, 0.9);
-                backdrop-filter: blur(15px);
-                border: 1px solid var(--glassy-border);
-                border-radius: 20px;
-                box-shadow: var(--shadow-effect);
-                padding: 25px;
-                transform: translateY(-20px);
-                opacity: 0;
-                visibility: hidden;
-                z-index: 1001;
-                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            }
-
-            .nav-links-area.links-active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .main-nav-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .main-nav-links li a {
-                padding: 14px;
-                display: block;
-                text-align: left;
-                border-radius: 16px;
-            }
-
-            .dropdown-content {
-                position: static;
-                width: 100%;
-                border-radius: 16px;
-                margin-top: 15px;
-                margin-bottom: 8px;
-                transform: none;
-                opacity: 1;
-                padding: 15px;
-                display: none;  /* Initially hidden */
-                box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
-            }
-
-            .dropdown-content::before {
-                display: none;
-            }
-          .nav-dropdown:hover .dropdown-content {
-                display: none; /* Hide on hover */
-            }
-
-            .nav-dropdown.dropdown-active .dropdown-content {
-                display: block; /* Show on .active */
-            }
-
-            .nav-top-info-bar {
-                max-width: 92%;
-                border-radius: 0 0 15px 15px;
-                padding: 8px 15px;
-            }
-
-            .contact-info-items {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
-            }
-
-            .cta-button {
-                width: 100%;
-                text-align: center;
-                margin-top: 8px;
-                padding: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .main-navigation {
-                padding: 10px 18px;
-                border-radius: 30px;
-                margin-top: 40px;
-            }
-
-            .site-logo-link img {
-                height: 45px;
-            }
-
-            .contact-info-item {
-                font-size: 11px;
-            }
-
-            .main-nav-links li a {
-                padding: 12px;
-                font-size: 14px;
-            }
-
-            .dropdown-content li a {
-                padding: 10px 15px;
-            }
-
-            .dropdown-content li a img {
-                width: 32px;
-                height: 32px;
-            }
-
-            .nav-top-info-bar {
-                max-width: 96%;
-                padding: 6px 12px;
-            }
-
-            .contact-info-items {
-                gap: 8px;
-            }
-        }
-
-        /* Enhanced Pulse Animation */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 4px 10px rgba(45, 212, 191, 0.2); /* Lighter initial shadow */
-            }
-            50% {
-                transform: scale(1.03); /* Slightly reduced scale */
-                box-shadow: 0 7px 15px rgba(45, 212, 191, 0.4); /* Slightly increased shadow */
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 10px rgba(45, 212, 191, 0.2); /* Back to lighter shadow */
-            }
-        }
-
-
-        .main-nav-links li a i {
-            margin-right: 6px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .main-nav-links li a:hover i,
-        .main-nav-links li a:focus i{
-            transform: translateY(-2px);
-            color: var(--primary-accent-color);
-        }
-
-        #current-time {
-            font-weight: 500;
-        }
+    :root {
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: rgba(0, 0, 0, 0.2);
+    --main-color: #fff;
+    --hover-color: rgba(255, 255, 255, 0.6);
+    --primary-color: #29ade4;
+    --nav-background-color:#394997;
+    --glass-shadow-black: rgba(0, 0, 0, 0.9);
+    }
+
+    header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2000;
+    background: var(--nav-background-color);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 6px var(--glass-shadow);
+    padding: 10px 10px;
+    transition: background 0.5s ease, margin-top 0.5s ease, margin 0.5s ease, width 0.5s ease, border-radius 0.5s ease;
+}
+
+/* Header Styles with glass effect (will be toggled) */
+header.glass-effect {
+    font-size: small;
+    width: 85%;
+    margin-top: 15px;
+    margin-left: auto; /* Added for clarity, but not enough alone */
+    margin-right: auto; /* Added for clarity, but not enough alone */
+    left: 50%; /* Centers fixed element */
+    transform: translateX(-50%); /* Adjusts for width to truly center */
+    border-radius: 100px; /* Simplified, all sides are the same */
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.6);
+}
+.flex_special{
+   display: flex;
+   text-align: center;
+    justify-content: center;
+    align-items: center;
+   justify-content: space-around;
+    align-items: center;
+    padding: 2px 2px; 
+}
+
+.contact-items {
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  gap: 1.125rem; 
+  width: min(100%, 35rem);
+  padding: 0.75rem 0.9375rem; 
+  padding-bottom: 5px;
+  background-color: #ffffff; 
+  border-radius: 0 0 1.25rem 1.25rem;
+  position: absolute; 
+  top: 0; 
+  left: 73.5%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.contact-items:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #000;
+  font-size: 13px;
+  transition: color 0.3s ease, transform 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.contact-item:hover {
+    color: #000;
+}
+
+.contact-item.glass-contact {
+    color: #000;
+    backdrop-filter: blur(0px);
+}
+
+.contact-item.glass-contact:hover {
+   color: var(--primary-color);
+   background-color: rgba(255, 255, 255, 0.5);
+   backdrop-filter: blur(3px);
+}
+
+.contact-item i {
+    font-size: 16px;
+}
+
+.contact_btn{
+  padding:12px;
+  text-decoration: none;
+  border-radius: 12px;
+  color:white;
+  background-color: green;
+}
+
+/* Logo Styles */
+.nav-brand img {
+    height: 90px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.nav-brand:hover img {
+    transform: scale(1.1);
+}
+
+/* Navigation Links Styles */
+header nav .nav-links-container ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav .nav-links-container ul li {
+    position: relative;
+}
+
+header nav .nav-links-container ul li a {
+    font-family: "Fira Sans", Arial, sans-serif;
+    z-index: 2000;
+    text-decoration: none;
+    color: var(--main-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav .nav-links-container ul li a:hover {
+    background-color: var(--hover-color);
+    color: #000;
+}
+
+header nav .nav-links-container ul li a.active {
+    background-color: #807a7a;
+    color:#000000;
+}
+
+header nav .nav-links-container ul li a.glass-link {
+    color: #000;
+}
+
+/* Dropdown Menu Styles */
+.nav-links-container ul li .dropdown-menu-menue {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--nav-background-color);
+  border:none;
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  z-index: 3000;
+  white-space: nowrap;
+  min-width: 200px;
+}
+
+.nav-links-container ul li:hover .dropdown-menu-menue {
+  display: block;
+}
+
+.nav-links-container ul li .dropdown-menu-menue li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--main-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-links-container ul li .dropdown-menu-menue li a img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.nav-links-container ul li .dropdown-menu-menue li a:hover {
+  background-color: var(--hover-color);
+  color:white;
+}
+
+header nav .nav-links-container ul li .dropdown-menu-menue li a.glass-menu-link {
+  color:#000;
+}
+
+.nav-links-container ul li a#displayBox::after {
+  content: '\25BC';
+  font-size: 10px;
+  margin-left: 5px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  color: var(--main-color);
+}
+
+.nav-links-container ul li:hover a#displayBox::after {
+  transform: rotate(180deg);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--main-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 2000;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .nav-links-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--nav-background-color);
+    flex-direction: column;
+    padding: 80px 20px 30px;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 1500;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+  }
+  
+  .nav-links-container.active {
+    right: 0;
+  }
+  
+  .flex_special {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  header nav .nav-links-container ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contact-items {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .nav-links-container ul li .dropdown-menu-menue {
+    position: static;
+    display: none;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 0 0 20px;
+    background: transparent;
+  }
+  
+  .nav-links-container ul li.dropdown-active .dropdown-menu-menue {
+    display: block;
+    max-height: 500px;
+    padding: 10px 0 10px 20px;
+  }
+  
+  .nav-links-container ul li.dropdown-active a#displayBox::after {
+    transform: rotate(180deg);
+  }
+  
+  .contact_btn {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  header.glass-effect {
+    width: 95%;
+    margin: 5px auto;
+  }
+  
+  .nav-brand img {
+    height: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-brand img {
+    height: 50px;
+  }
+  
+  .contact-items {
+    font-size: 12px;
+  }
+  
+  .contact-item i {
+    font-size: 14px;
+  }
+  
+  header.glass-effect {
+    width: 98%;
+    margin: 3px auto;
+  }
+}
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="site-header">
-        <div class="navigation-container">
-            <!-- Top Info Bar -->
-            <div class="nav-top-info-bar">
-                <address class="contact-info-items">
-                    <a href="tel:+123456789" class="contact-info-item" aria-label="Call us at +1 234 567 89">
-                        <i class="fas fa-phone-alt"></i> +1 234 567 89
-                    </a>
-                    <a href="mailto:info@.com" class="contact-info-item" aria-label="Email us at info@.com">
-                        <i class="fas fa-envelope"></i> info@.com
-                    </a>
-                    <span class="contact-info-item">
-                        <i class="fas fa-clock"></i> <span id="current-time"></span>
-                    </span>
-                </address>
-            </div>
-
-            <!-- Main Navigation -->
-            <nav class="main-navigation" aria-label="Main Navigation">
-                <!-- Logo -->
-                <a href="index.html" class="site-logo-link" aria-label="Pehesara Tours Home">
-                    <img src="img/logo.png" alt="Pehesara Tours Logo">
+    <section class="">
+        <header>
+            <button class="mobile-menu-button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav>
+                <div class="flex_special">
+                <a href="index.html" class="nav-brand">
+                    <img src="img/logo.png" alt="logo" height="120px" width="120px">
                 </a>
-
-                <!-- Hamburger Menu Button -->
-                <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links-area" aria-label="Toggle Navigation Menu">
-                    <span class="toggle-bar"></span>
-                    <span class="toggle-bar"></span>
-                    <span class="toggle-bar"></span>
-                </button>
-
-                <!-- Nav Links -->
-                <div class="nav-links-area" id="nav-links-area">
-                    <ul class="main-nav-links">
-                        <li>
-                            <a href="index.html" class="link-active" aria-current="page">
-                                <i class="fas fa-home"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav-dropdown">
-                            <a href="#" class="dropdown-trigger" aria-expanded="false" aria-controls="destinations-dropdown">
-                                <i class="fas fa-map-marked-alt"></i> Day Tours
-                            </a>
-                            <ul class="dropdown-content" id="destinations-dropdown">
-                                <li>
-                                    <a href="Ella.html">
-                                        <img src="/img/ella.jpg" alt="Ella Destinations">
-                                        <span>Ella Day Tour</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="KandyDayTour.html">
-                                        <img src="img/temple tooth.jpg" alt="KandyDayTour Destinations">
-                                        <span>Kandy Day Tour</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="Nuwaraeliya.html">
-                                        <img src="img/nuwaraliya.jpg" alt="Nuwaraeliya Destinations">
-                                        <span>Nuwaraeliya Day Tour</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="Pinawala.html">
-                                        <img src="/img/pinawalla.jpg" alt="pinawala">
-                                        <span>Pinawala Day Tour</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Sigiriya.html">
-                                        <img src="/img/tourPlaces/Sigriya.jpg" alt="sigiriya">
-                                        <span>Sigiriya Day Tour</span>
-                                    </a>
-                                </li>
+            
+                <div class="nav-links-container">
+                    <div class="contact-items">
+                        <span class="contact-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div id="clock"></div>
+                        </span>
+                        <span class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            Call Us:+94 76 468 3423
+                        </span>
+                        <span class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            Email:inquiries@pehesaralanka.com
+                        </span>
+                    </div>
+                    
+                    <ul>
+                       <li><a href="index.html">Home</a></li>
+                       <li><a href="AboutUs.html">About</a></li>
+                       <li> <a id="displayBox">Round Tours</a>
+                            <ul class="dropdown-menu-menue">
+                                <li><a href="photogrphytour.html"><img src="img/beach 2.jpg" alt="Beach">Sri Lanka Photography Tour</a></li>
+                                 <li><a href="SrilankaBeachTour.html"><img src="img/beach 3.jpg" alt="Mountain">Sri Lanka Beach Tour</a></li>
+                                  <li><a href="honeymoontour.html"><img src="img/moon2.jpg" alt="City">Sri Lanka Honeymoon Tour</a></li>
+                                 <li><a href="SrilankaWildTOur.html"><img src="img/animal e.jpg" alt="Historical">Sri Lanka Wildlife Tour</a></li>
+                                 <li><a href="Ramayanatour.html"><img src="img/kovil.jpg" alt="City">Sri Lanka Ramayana Tour</a></li>
+                                 <li><a href="SrilankaCulturalHeritage.html"><img src="img/ambuluwawa.jpg" alt="City">Srilanka Cultural Heritage</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-dropdown">
-                            <a href="#" class="dropdown-trigger" aria-expanded="false" aria-controls="experiences-dropdown">
-                                <i class="fas fa-hiking"></i> Round Tours
-                            </a>
-                            <ul class="dropdown-content" id="experiences-dropdown">
-                                <li>
-                                    <a href="photogrphytour.html">
-                                        <img src="/img/beach 4.jpg" alt="photogrphytour Tours">
-                                        <span>photogrphy tour</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/SrilankaBeachTour.html">
-                                        <img src="/img/beach 2.jpg" alt="SrilankaBeachTour Tours">
-                                        <span>Beach Tour</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/honeymoontour.html">
-                                        <img src="/img/moon2.jpg" alt="honeymoontour Tours">
-                                        <span>Honeymoon Tour</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/SrilankaWildTOur.html">
-                                        <img src="/img/elephant.jpg" alt="SrilankaWildTOur Retreats">
-                                        <span>Wildlife Tour</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Ramayanatour.html">
-                                        <img src="/img/temple k.jpg" alt="Ramayanatour Retreats">
-                                        <span>Ramayana Tour</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/Sri lankaCulturalHeritage.html">
-                                        <img src="/img/nilmanal.jpg" alt="Sri lankaCulturalHeritage Retreats">
-                                        <span>Cultural Heritage Tour</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="AboutUs.html">
-                                <i class="fas fa-info-circle"></i> About
-                            </a>
-                        </li>
-                        <li>
-                            <a href="Gallerypage.html">
-                                <i class="fas fa-info-circle"></i> Gallery
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/ThingsToDo.html">
-                                <i class="fas fa-info-circle"></i> Things ToDo 
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Contact.html" class="cta-button">
-                                <i class="fas fa-calendar-check"></i> Contact US
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/popup.html" class="cta-button">
-                                <i class="fas fa-calendar-check"></i>inquery
-                            </li>
-                    </ul>
+                       </li>
+                       <li> <a id="displayBox">Day Tours</a>
+                        <ul class="dropdown-menu-menue">
+                            <li><a href="Ella.html"><img src="img/ella.jpg" alt="Beach">Ella Day tour</a></li>
+                             <li><a href="KandyDayTour.html"><img src="img/temple k.jpg" alt="Mountain">Kandy day tour</a></li>
+                              <li><a href="Nuwaraeliya.html"><img src="img/nuwaraliya.jpg" alt="City">Nuwara Eliya Day Tour</a></li>
+                             <li><a href="Pinawala.html"><img src="img/pinawalla.jpg" alt="Historical">Pinnawala Elephant Orphanage Tour</a></li>
+                             <li><a href="Sigiriya.html"><img src="img/tourPlaces/Sigriya.jpg" alt="Historical">Sigiriya Day Tour</a></li>
+                        </ul>
+                   </li>
+                   <li><a href="Gallerypage.html">Gallery</a></li>  
+                   <li><a href="ThingsToDo.html">Things to do</a></li>
+                   <li><a class="contact_btn" href="Contact.html">Contact Us</a></li>
+                   <li><a href="popup.html" href="popup.html" >pop up </a></li>
+                   </ul>
+                </div>
                 </div>
             </nav>
-        </div>
-    </header>
-    <!-- Scripts -->
-    <script>
-        // DOM Elements
-        const siteHeader = document.querySelector('.site-header');
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinksArea = document.querySelector('.nav-links-area');
-        const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
-        const timeDisplay = document.getElementById('current-time');
-
-        // Update current time (simplified)
-        function updateTime() {
-            if (timeDisplay) { 
-                const now = new Date();
-                timeDisplay.textContent = now.toLocaleTimeString('en-US', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    weekday: 'short',
-                    hour12: true
-                });
-            }
-        }
-
-        // Initial time update and interval
-        updateTime();
-        setInterval(updateTime, 60000);
-
-
-        // Scroll event for header styling
-        window.addEventListener('scroll', () => {
-            siteHeader.classList.toggle('header-scrolled', window.scrollY > 100);
-        });
-
-        // Mobile menu toggle
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('toggle-active');
-            navLinksArea.classList.toggle('links-active');
-            menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('toggle-active'));
-        });
-
-        // Dropdown functionality
-        dropdownTriggers.forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default link behavior
-                const parent = trigger.closest('.nav-dropdown');
-                const dropdownContent = parent.querySelector('.dropdown-content');
-
-                 if (window.innerWidth <= 768) {
-                    // Close all other open dropdowns
-                    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-                        if (dropdown !== parent && dropdown.classList.contains('dropdown-active')) {
-                            dropdown.classList.remove('dropdown-active');
-                            dropdown.querySelector('.dropdown-trigger').setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                }
-
-                // Toggle current dropdown
-                parent.classList.toggle('dropdown-active');
-                trigger.setAttribute('aria-expanded', parent.classList.contains('dropdown-active'));
-            });
-        });
-
-        // Close menu when clicking outside (improved)
-        document.addEventListener('click', (e) => {
-             if (window.innerWidth <= 768) {
-                if (!e.target.closest('.main-navigation')) {
-                    menuToggle.classList.remove('toggle-active');
-                    navLinksArea.classList.remove('links-active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-
-                    // Close all dropdowns
-                    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('dropdown-active');
-                        dropdown.querySelector('.dropdown-trigger').setAttribute('aria-expanded', 'false');
-                    });
-                }
-             }
-        });
-
-        // Handle window resize (improved)
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                // Reset mobile menu and dropdown states
-                menuToggle.classList.remove('toggle-active');
-                navLinksArea.classList.remove('links-active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-                    dropdown.classList.remove('dropdown-active');
-                    dropdown.querySelector('.dropdown-trigger').setAttribute('aria-expanded', 'false');
-                });
-            }
-        });
-
-       // Close dropdowns when focus leaves them (accessibility)
-        document.querySelectorAll('.dropdown-content').forEach(dropdown => {
-            dropdown.addEventListener('focusout', (e) => {
-                // Check if the new focus target is *not* inside the dropdown
-                if (!dropdown.contains(e.relatedTarget)) {
-                    const parentDropdown = dropdown.closest('.nav-dropdown');
-                    if (parentDropdown) {
-                        parentDropdown.classList.remove('dropdown-active');
-                        parentDropdown.querySelector('.dropdown-trigger').setAttribute('aria-expanded', 'false');
-                    }
-                }
-            });
-        });
-
-    </script>
+        </header>
+    </section>
+    
 </body>
 </html>
