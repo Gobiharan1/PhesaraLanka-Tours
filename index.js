@@ -9,75 +9,123 @@ function updateDisplay(value) {
 }
 
 //slider 
-document.addEventListener("DOMContentLoaded", function () {
-    function initializeSlider(sliderId) {
-        const slider = document.getElementById(sliderId);
-        const track = slider.querySelector(".slider-track");
-        const prevArrow = slider.querySelector(".prev-arrow");
-        const nextArrow = slider.querySelector(".next-arrow");
-        const dotsContainer = document.getElementById(`dots${sliderId.slice(-1)}`);
-        const cards = slider.querySelectorAll(".tour-card");
+// Slider Initialization
+function initializeSlider(sliderId) {
+    const slider = document.getElementById(sliderId);
+    const track = slider.querySelector(".slider-track");
+    const prevArrow = slider.querySelector(".prev-arrow");
+    const nextArrow = slider.querySelector(".next-arrow");
+    const dotsContainer = document.getElementById(`dots${sliderId.slice(-1)}`);
+    const cards = slider.querySelectorAll(".tour-card");
+    
+    let index = 0;
+    const totalCards = cards.length;
+    const visibleCards = window.innerWidth > 1024 ? 4 : window.innerWidth > 767 ? 3 : 2;
+    const step = 100 / visibleCards;
+    const maxIndex = Math.ceil(totalCards / visibleCards) - 1;
+    let autoSlideInterval;
 
-        let index = 0;
-        const totalCards = cards.length;
-        const visibleCards = window.innerWidth > 1024 ? 4 : window.innerWidth > 767 ? 3 : 2;
-        const step = 100 / visibleCards;
-        const maxIndex = Math.ceil(totalCards / visibleCards) - 1;
+    // Clear previous dots
+    dotsContainer.innerHTML = "";
 
-        // Clear previous dots
-        dotsContainer.innerHTML = "";
-
-        // Create indicator dots
-        for (let i = 0; i <= maxIndex; i++) {
-            const dot = document.createElement("span");
-            dot.classList.add("slider-dot");
-            if (i === 0) dot.classList.add("active");
-            dot.addEventListener("click", () => goToSlide(i));
-            dotsContainer.appendChild(dot);
-        }
-
-        const dots = dotsContainer.querySelectorAll(".slider-dot");
-
-        function updateSlider() {
-            track.style.transform = `translateX(-${index * step}%)`;
-
-            // Update dot indicators
-            dots.forEach(dot => dot.classList.remove("active"));
-            dots[Math.floor(index / visibleCards)]?.classList.add("active");
-
-            // Disable arrows if necessary
-            prevArrow.style.opacity = index === 0 ? "0.5" : "1";
-            nextArrow.style.opacity = index >= maxIndex * visibleCards ? "0.5" : "1";
-        }
-
-        function goToSlide(slideIndex) {
-            index = slideIndex * visibleCards;
-            updateSlider();
-        }
-
-        nextArrow.addEventListener("click", () => {
-            if (index + visibleCards <= totalCards - 1) {
-                index += visibleCards;
-                updateSlider();
-            }
-        });
-
-        prevArrow.addEventListener("click", () => {
-            if (index - visibleCards >= 0) {
-                index -= visibleCards;
-                updateSlider();
-            } else {
-                index = 0;
-                updateSlider();
-            }
-        });
-
-        updateSlider(); // Ensure the initial state is correct
+    // Create indicator dots
+    for (let i = 0; i <= maxIndex; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("slider-dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => goToSlide(i));
+        dotsContainer.appendChild(dot);
     }
 
+    const dots = dotsContainer.querySelectorAll(".slider-dot");
+
+    function updateSlider() {
+        track.style.transform = `translateX(-${index * step}%)`;
+
+        // Update dot indicators
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[Math.floor(index / visibleCards)]?.classList.add("active");
+
+        // Disable arrows if necessary
+        prevArrow.style.opacity = index === 0 ? "0.5" : "1";
+        nextArrow.style.opacity = index >= maxIndex * visibleCards ? "0.5" : "1";
+    }
+
+    function goToSlide(slideIndex) {
+        index = slideIndex * visibleCards;
+        updateSlider();
+        resetAutoSlide();
+    }
+
+    function nextSlide() {
+        if (index + visibleCards <= totalCards - 1) {
+            index += visibleCards;
+        } else {
+            index = 0; // Loop back to start
+        }
+        updateSlider();
+    }
+
+    function prevSlide() {
+        if (index - visibleCards >= 0) {
+            index -= visibleCards;
+        } else {
+            index = maxIndex * visibleCards; // Loop to end
+        }
+        updateSlider();
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 4000); // Auto slide every 4 seconds
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    nextArrow.addEventListener("click", () => {
+        nextSlide();
+        resetAutoSlide();
+    });
+
+    prevArrow.addEventListener("click", () => {
+        prevSlide();
+        resetAutoSlide();
+    });
+
+    updateSlider();
+    startAutoSlide();
+}
+
+// Initialize sliders
+document.addEventListener("DOMContentLoaded", function () {
     initializeSlider("slider1");
     initializeSlider("slider2");
 });
+
+// Ella Tours Animation
+document.addEventListener("DOMContentLoaded", function() {
+    const itineraryItems = document.querySelectorAll(".itinerary-item");
+
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    itineraryItems.forEach(item => observer.observe(item));
+});
+
 
 //ella tours
 
@@ -269,3 +317,4 @@ lightbox.addEventListener('click', (e) => {
         animateDayContainers(activeContent);
         firstTabb.classList.add('selected');
     }
+

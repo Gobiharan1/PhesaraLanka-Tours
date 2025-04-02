@@ -14,5 +14,5 @@ async function loadComponent(id, file) {
 
 window.onload = () => {
     loadComponent('navbar', 'Components/NavBar.html');
-    loadComponent('footer', 'Components/footer.html'); // If you have a footer
+    loadComponent('footer', 'Components/footer.html');
 };

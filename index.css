@@ -75,7 +75,7 @@ body {
 }
 
 .imgbackground-container {
-    background-image: url('img/bg.jpg');
+    background-image: url('img/beach.jpg');
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -84,7 +84,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
- 
+
 }
 
 @keyframes changeBg {
@@ -93,7 +93,7 @@ body {
     }
 
     20% {
-        background-image: url('img/tourPlaces/perhara\ k.jpg');
+        background-image: url('img/tourPlaces/parahara.jpg');
     }
 
     40% {
@@ -112,6 +112,7 @@ body {
         background-image: url('img/tourPlaces/Tea.jpg');
     }
 }
+
 /* Wrapper for flex positioning and aesthetic alignment */
 .select-wrapper {
   display: flex;
@@ -130,7 +131,8 @@ body {
   font-size: 1.1rem;
   font-weight: 500;
   color: #ffffff; /* White text for contrast */
-  background: linear-gradient(135deg, #5085b4 0%, #215582 100%); /* Matches tour card gradient */
+  background:#394997;
+  ; /* Matches tour card gradient */
   border: none; /* Remove default border */
   border-radius: 12px; /* Smooth, modern corners */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
@@ -201,78 +203,138 @@ body {
 }
 
 /* TOUR LINKS CONTAINER */
-.tour-links {
-  position: relative;
+.tour-container {
   display: flex;
   justify-content: center;
+  margin: 20px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Tour Link Container */
+.tour-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-/* CHOOSE YOUR TOUR BOX */
-.tour-links::before {
-  content: "Choose Your Tour";
-  display: block;
-  padding: 12px 20px;
+/* Main Button */
+.tour-button {
+  padding: 14px 24px;
   background: #007bff;
   color: #fff;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* TOUR LIST - INITIALLY HIDDEN */
-.tour-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.tour-link:hover .tour-button {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dropdown Content Container */
+.dropdown-content {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
+  transform: translateX(-50%) translateY(15px);
+  display: flex;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s, transform 0.3s;
-  z-index: 10;
+  transition: all 0.3s ease;
+  z-index: 100;
+  overflow: hidden;
+  margin-top: 10px;
+  min-width: 500px;
 }
 
-/* TOUR LIST ITEMS */
-.tour-links li {
-  border-bottom: 1px solid #ddd;
-}
-
-.tour-links li:last-child {
-  border-bottom: none;
-}
-
-/* TOUR LINKS */
-.tour-links a {
-  display: block;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  transition: background 0.3s, color 0.3s;
-}
-
-/* HOVER EFFECT */
-.tour-links a:hover {
-  background: #007bff;
-  color: #fff;
-}
-
-/* SHOW MENU ON HOVER */
-.tour-links:hover ul {
+.tour-link:hover .dropdown-content {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(5px);
 }
 
+/* Dropdown Columns */
+.dropdown-column {
+  flex: 1;
+  padding: 10px 5px;
+}
+
+.dropdown-column:first-child {
+  border-right: 1px solid #eee;
+}
+
+/* List Styling */
+.dropdown-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content li {
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+  font-size: 15px;
+  border-radius: 6px;
+  margin: 2px 5px;
+}
+
+.dropdown-content a:hover {
+  background: #394997;
+  color: #fff;
+  transform: translateX(3px);
+}
+
+/* Add arrow indicator to main button */
+.tour-button::after {
+  content: "▼";
+  font-size: 10px;
+  margin-left: 8px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.tour-link:hover .tour-button::after {
+  transform: rotate(180deg);
+}
+
+/* Add subtle animation to links */
+.dropdown-content a {
+  position: relative;
+}
+
+.dropdown-content a::before {
+  content: "→";
+  position: absolute;
+  left: 10px;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover::before {
+  opacity: 1;
+  left: 15px;
+}
+
+.dropdown-content a:hover {
+  padding-left: 30px;
+}
 .homeInputBox,
 .homeInputBox2 {
     list-style: none;
@@ -413,8 +475,8 @@ body {
   opacity: 0;
   background-clip: text;
   background:#29ade4;
-  animation: slideInHeader 2s ease-out 0.2s forwards, 
-             revealText 2s ease-in-out infinite alternate; /* Combined animation */
+  animation: slideInHeader 5s ease-out 0.2s forwards, 
+             revealText 5s ease-in-out infinite alternate; 
 }
 
 @keyframes slideInHeader {
@@ -442,7 +504,7 @@ body {
   height: 100%;
   background: #394997;
   z-index: -1;
-  animation: reveal 2s ease-in-out infinite alternate;
+  animation: reveal 5s ease-in-out infinite alternate;
 }
 
 @keyframes reveal {
@@ -452,6 +514,7 @@ body {
   100% {
       transform: translateX(100%);
   }
+
 }
 
 /* Define variables */
@@ -471,7 +534,7 @@ body {
     /* Initial offset for paragraph slide */
     opacity: 0;
     /* Initial opacity */
-    animation: slideInParagraph 0.8s ease-out 1.2s forwards;
+    animation: slideInParagraph 0.3s ease-out 1.2s forwards;
     /* Animation applied to paragraph */
 }
 
@@ -596,7 +659,7 @@ body {
   .content-parallax button {
       padding: 15px 30px;
       font-size: 1.2em;
-      background-color: #ff7f50;
+      background-color: #394997;
       color: white;
       border: none;
       cursor: pointer;
@@ -605,7 +668,7 @@ body {
   }
   .content-parallax button:hover {
       filter: blur(0px);
-      background-color: #ff6b3a;
+      background-color: #394997;
       transform: scale(1.1);
   }
 /*page3 jorney end*/
@@ -1206,18 +1269,20 @@ body {
 
  .explore-btn{
     padding: 12px 24px;
-     background-color: rgba(255,255,255, 0.2);
-      color: #fff;
-      border: 1px solid rgba(255,255,255, 0.4);
-       border-radius: 5px;
-       cursor: pointer;
-       margin-top: 20px;
+    background-color: rgba(255,255,255, 0.2);
+    color: #fff;
+    border: 1px solid rgba(255,255,255, 0.4);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
     transform: translateY(20px);
     opacity: 0;
-     font-weight: 600;
-        letter-spacing: 1px;
-     transition: background-color 0.3s, border-color 0.3s;
-      animation: fadeInUp 1s ease-out forwards 0.9s;  /* Apply fadeInUp animation for button */
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-style:unset;
+    transition: background-color 0.3s, border-color 0.3s;
+    animation: fadeInUp 1s ease-out forwards 0.9s;
+    text-decoration: none;
 
  }
 
@@ -1435,26 +1500,28 @@ from {
   
 .GalleryBanner {
   display: flex;
-  color: #fff;
-  height: 65vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/tourPlaces/Beach.jpg') no-repeat center center/cover;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top:-10px;
+    color: #fff;
+    height: 65vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/tourPlaces/rock.jpg') no-repeat center center/cover;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+
 }
 
 .GalleryBanner h1 {
-  font-size: 8rem;
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-  background: linear-gradient(to right, #ff5733, #33ff57); 
-  color: transparent; 
-  -webkit-background-clip: text; 
-  background-clip: text; 
-  background-size: cover;
-  position: absolute;
+  font-size: 5rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    background: white; /* Use background for gradient */
+    color: transparent; /* Makes the text transparent so the gradient shows */
+    -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
+    background-clip: text; /* Standard property for broader support */
+    background-size: cover;
+    position: absolute;
+    margin-bottom: 6rem;
 }
 
 .container-gallery {
@@ -1545,20 +1612,21 @@ color: #f00;
   display: flex;
   color: #fff;
   height: 65vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/tourPlaces/perhara\ k.jpg') no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/ambuluwawa.jpg') no-repeat center center/cover;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top:-10px;
+  margin-top: 100px;
 }
 
 .ThingsToDoBanner h1 {
-  font-size: 11rem;
+  font-size: 5rem;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background-image: url('img/tourPlaces/Sigriya.jpg'); /* Image as background */
+  background:white; /* Image as background */
   background-size: cover;
+   
   -webkit-background-clip: text;  /* Clips the background to the text */
   color: transparent; /* Makes the text color transparent so background image shows through */
   margin-bottom: 7rem;
@@ -1692,7 +1760,7 @@ color: #f00;
     left: 0;
     width: 40px;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--secondary));
+    /* background: linear-gradient(90deg, var(--accent), var(--secondary)); */
     transition: width 0.3s ease;
 }
 
@@ -1701,9 +1769,9 @@ color: #f00;
 }
 
 /* Enhanced Tag Design */
-.card-tag-yello{
-    background: yellow;
-    color: rgb(0, 0, 0);
+.card-tag-main{
+    background:#394997;
+    color: rgb(255, 255, 255);
     padding: 8px 20px;
     border-radius: 25px;
     font-size: 0.85rem;
@@ -1711,28 +1779,6 @@ color: #f00;
     margin-bottom: 15px;
     box-shadow: 0 4px 15px rgba(42, 39, 196, 0.25);
     transition: transform 0.3s ease;
-}
-.card-tag-green{
-  background-color: green;
-  color: rgb(0, 0, 0);
-  padding: 8px 20px;
-  border-radius: 25px;
-  font-size: 0.85rem;
-  display: inline-block;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 15px rgba(42, 39, 196, 0.25);
-  transition: transform 0.3s ease;
-}
-.card-tag-green{
-  background: greenyellow;
-  color: rgb(0, 0, 0);
-  padding: 8px 20px;
-  border-radius: 25px;
-  font-size: 0.85rem;
-  display: inline-block;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 15px rgba(42, 39, 196, 0.25);
-  transition: transform 0.3s ease;
 }
 
 .card-tag:hover {
@@ -1805,24 +1851,23 @@ color: #f00;
 
 .AboutUsBanner {
   display: flex;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('img/buddisam.jpg') no-repeat center center/cover;
-  color: #fff;
-  height: 60vh;
+  height: 65vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/beach.jpg') no-repeat center center/cover;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 100px;
 }
 
 .AboutUsBanner h1 {
-  font-size: 11rem;
+  font-size: 5rem;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background-image: url('img/tourPlaces/pinawala.jpg'); /* Image as background */
+  background:white; /* Image as background */
   background-size: cover;
   -webkit-background-clip: text;  /* Clips the background to the text */
   color: transparent; /* Makes the text color transparent so background image shows through */
-  margin-bottom: 7rem;
 }
 
 /*About End*/
@@ -2060,24 +2105,23 @@ color: #f00;
 /*About*/
 .ContactBanner{
   display: flex;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('img/tourPlaces/pinawala.jpg') no-repeat center center/cover;
-  color: #fff;
-  height: 60vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  height: 65vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/maligawa.jpg') no-repeat center center/cover;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
 }
 
 .ContactBanner h1 {
-  font-size: 11rem;
+  font-size: 5rem;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background-image: url('img/tourPlaces/rock.jpg'); /* Image as background */
+   background:white; /* Image as background */
   background-size: cover;
   -webkit-background-clip: text;  /* Clips the background to the text */
   color: transparent; /* Makes the text color transparent so background image shows through */
-  margin-bottom: 7rem;
 }
 /*About End*/
 /*About us img animation end*/

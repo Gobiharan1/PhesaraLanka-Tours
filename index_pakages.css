@@ -66,7 +66,7 @@
     font-weight: bold;
     display: inline-flex;
     align-items: center;
-    background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
+    background: white; /* Use background for gradient */
     color: transparent; /* Makes the text transparent so the gradient shows */
     -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
     background-clip: text; /* Standard property for broader support */
@@ -85,14 +85,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top:-10px;
+   
   }
   .PhotoBanner-SriLankaBeachTour h1 {
     font-size: 5rem;
     font-weight: bold;
     display: inline-flex;
     align-items: center;
-    background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
+    background: white;  /* Use background for gradient */
     color: transparent; /* Makes the text transparent so the gradient shows */
     -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
     background-clip: text; /* Standard property for broader support */
@@ -110,14 +110,14 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top:-10px;
+ 
 }
 .PhotoBanner-honeymontour h1 {
   font-size: 5rem;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
+  background: white;  /* Use background for gradient */
   color: transparent; /* Makes the text transparent so the gradient shows */
   -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
   background-clip: text; /* Standard property for broader support */
@@ -135,14 +135,14 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top:-10px;
+ 
 }
 .srilankaBanner-wildlife h1 {
   font-size: 5rem;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
+  background: white;  /* Use background for gradient */
   color: transparent; /* Makes the text transparent so the gradient shows */
   -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
   background-clip: text; /* Standard property for broader support */
@@ -159,22 +159,21 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top:-10px;
+  
 }
 .PhotoBanner-ramayana h1 {
   font-size: 5rem;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
-  color: transparent; /* Makes the text transparent so the gradient shows */
-  -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
-  background-clip: text; /* Standard property for broader support */
+  background: white; 
+  color: transparent; 
+  -webkit-background-clip: text; 
+  background-clip: text; 
   background-size: cover;
   position: absolute;
   margin-bottom: 6rem;
 }
-
 
 
 /*Cards start*/
@@ -369,7 +368,7 @@
     left: 0;
      right: 0;
     bottom: 0;
-     background: linear-gradient(45deg, #007bff, #28a745, #ffc107);
+     background: white;
    background-size: 400% 400%;
      animation: gradientAnimation 5s linear infinite;
  }
@@ -611,12 +610,11 @@
 .EllaBanner {
   display: flex;
   color: #fff;
-  height: 60vh;
+  height: 65vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/ella.jpg') no-repeat center center/cover;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 150px;
 } 
 
 .EllaBanner h1 {
@@ -624,7 +622,7 @@
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
+  background: white; /* Use background for gradient */
   color: transparent; /* Makes the text transparent so the gradient shows */
   -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
   background-clip: text; /* Standard property for broader support */
@@ -638,20 +636,20 @@
 .KandyBanner {
   display: flex;
   color: #fff;
-  height: 60vh;
+  height: 65vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/temple\ tooth.jpg') no-repeat center center/cover;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 150px;
+  
 } 
 
-.kandyBanner h1 {
+.KandyBanner h1 {
   font-size: 5rem;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
+  background: white; /* Use background for gradient */
   color: transparent; /* Makes the text transparent so the gradient shows */
   -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
   background-clip: text; /* Standard property for broader support */
@@ -665,12 +663,12 @@
 .PinawalaBanner {
   display: flex;
   color: #fff;
-  height: 60vh;
+  height: 65vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/tourPlaces/pinawala.jpg') no-repeat center center/cover;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 150px;
+  
 } 
 
 .PinawalaBanner h1 {
@@ -678,7 +676,7 @@
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
+  background: white; /* Use background for gradient */
   color: transparent; /* Makes the text transparent so the gradient shows */
   -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
   background-clip: text; /* Standard property for broader support */
@@ -692,12 +690,12 @@
 .SigiriyaBanner {
   display: flex;
   color: #fff;
-  height: 60vh;
+  height: 65vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/tourPlaces/Sigriya.jpg') no-repeat center center/cover;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 150px;
+ 
 } 
 
 .SigiriyaBanner h1 {
@@ -705,7 +703,7 @@
   font-weight: bold;
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(to right, #ff5733, #33ff57); /* Use background for gradient */
+  background: white; /* Use background for gradient */
   color: transparent; /* Makes the text transparent so the gradient shows */
   -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
   background-clip: text; /* Standard property for broader support */
@@ -715,6 +713,31 @@
 }
 /*SigiriyaBanner  end*/
 
+/*ella pakage banner start*/
+.NuwaraeliyaBanner {
+  display: flex;
+  color: #fff;
+  height: 65vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('img/nuwaraliya.jpg') no-repeat center center/cover;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+} 
+
+.NuwaraeliyaBanner h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  background: white; /* Use background for gradient */
+  color: transparent; /* Makes the text transparent so the gradient shows */
+  -webkit-background-clip: text; /* Clips the gradient to the text (Webkit browsers) */
+  background-clip: text; /* Standard property for broader support */
+  background-size: cover;
+  position: absolute;
+  margin-bottom: 6rem;
+}
+/*ella banner end*/
 
 /*ella tours start*/
 .background-container {
@@ -1353,11 +1376,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Increased button shadow on hover */
     margin-bottom: 4rem;
   }
 
-  .container {
-    max-width: 90%;
-    margin: 2rem auto;
-    padding: 1.2rem;
-  }
+  
 
   .card-section {
     gap: 2rem;

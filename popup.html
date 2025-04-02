@@ -1,34 +1,45 @@
-<div class="popup-overlay">
-    <div class="popup-content">
-        <button class="close-btn">×</button>
-        <form class="inquiry-form">
-            <h2>Tour Inquiry</h2>
-            <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" required>
-                <span class="error-message">Please enter your name</span>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" required>
-                <span class="error-message">Please enter a valid email</span>
-            </div>
-            <div class="form-group">
-                <label for="tour">Tour Type</label>
-                <select id="tour">
-                    <option value="">Select a Tour</option>
-                    <option value="photography">Photography Tour</option>
-                    <option value="beach">Beach Tour</option>
-                    <option value="honeymoon">Honeymoon Tour</option>
-                    <option value="wildlife">Wildlife Tour</option>
-                    <option value="ramayana">Ramayana Tour</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" placeholder="Tell us about your requirements..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit Inquiry</button>
-        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop up form</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-btn">×</button>
+            <form class="inquiry-form">
+                <h2>Tour Inquiry</h2>
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" required>
+                    <span class="error-message">Please enter your name</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" required>
+                    <span class="error-message">Please enter a valid email</span>
+                </div>
+                <div class="form-group">
+                    <label for="tour">Tour Type</label>
+                    <select id="tour">
+                        <option value="">Select a Tour</option>
+                        <option value="photography">Photography Tour</option>
+                        <option value="beach">Beach Tour</option>
+                        <option value="honeymoon">Honeymoon Tour</option>
+                        <option value="wildlife">Wildlife Tour</option>
+                        <option value="ramayana">Ramayana Tour</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Tell us about your requirements..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Inquiry</button>
+            </form>
+        </div>
     </div>
-</div>
+</body>
+</html>
