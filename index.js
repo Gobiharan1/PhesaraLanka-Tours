@@ -1,108 +1,37 @@
-function updateDisplay(value) {
-    const displayBox = document.getElementById('tourSelect');
-    if (value === "All your tours") {
-        console.log("Showing all tours"); // Replace with your logic
-    } else {
-        console.log("Selected tour: " + value); // Replace with your logic
+const swiper = new Swiper('.mySwiper', {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    speed: 1000, // smoother speed
+    autoplay: {
+      delay: 1000, // wait 3 seconds before sliding
+      disableOnInteraction: true, // pause autoplay when user interacts
+    },
+    grabCursor: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+      1400: {
+        slidesPerView: 4,
+      }
     }
-    // Optionally update the displayBox or other UI elements here
-}
-
+  });
 //slider 
-// Slider Initialization
-function initializeSlider(sliderId) {
-    const slider = document.getElementById(sliderId);
-    const track = slider.querySelector(".slider-track");
-    const prevArrow = slider.querySelector(".prev-arrow");
-    const nextArrow = slider.querySelector(".next-arrow");
-    const dotsContainer = document.getElementById(`dots${sliderId.slice(-1)}`);
-    const cards = slider.querySelectorAll(".tour-card");
-    
-    let index = 0;
-    const totalCards = cards.length;
-    const visibleCards = window.innerWidth > 1024 ? 4 : window.innerWidth > 767 ? 3 : 2;
-    const step = 100 / visibleCards;
-    const maxIndex = Math.ceil(totalCards / visibleCards) - 1;
-    let autoSlideInterval;
-
-    // Clear previous dots
-    dotsContainer.innerHTML = "";
-
-    // Create indicator dots
-    for (let i = 0; i <= maxIndex; i++) {
-        const dot = document.createElement("span");
-        dot.classList.add("slider-dot");
-        if (i === 0) dot.classList.add("active");
-        dot.addEventListener("click", () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-    }
-
-    const dots = dotsContainer.querySelectorAll(".slider-dot");
-
-    function updateSlider() {
-        track.style.transform = `translateX(-${index * step}%)`;
-
-        // Update dot indicators
-        dots.forEach(dot => dot.classList.remove("active"));
-        dots[Math.floor(index / visibleCards)]?.classList.add("active");
-
-        // Disable arrows if necessary
-        prevArrow.style.opacity = index === 0 ? "0.5" : "1";
-        nextArrow.style.opacity = index >= maxIndex * visibleCards ? "0.5" : "1";
-    }
-
-    function goToSlide(slideIndex) {
-        index = slideIndex * visibleCards;
-        updateSlider();
-        resetAutoSlide();
-    }
-
-    function nextSlide() {
-        if (index + visibleCards <= totalCards - 1) {
-            index += visibleCards;
-        } else {
-            index = 0; // Loop back to start
-        }
-        updateSlider();
-    }
-
-    function prevSlide() {
-        if (index - visibleCards >= 0) {
-            index -= visibleCards;
-        } else {
-            index = maxIndex * visibleCards; // Loop to end
-        }
-        updateSlider();
-    }
-
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 4000); // Auto slide every 4 seconds
-    }
-
-    function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-    }
-
-    nextArrow.addEventListener("click", () => {
-        nextSlide();
-        resetAutoSlide();
-    });
-
-    prevArrow.addEventListener("click", () => {
-        prevSlide();
-        resetAutoSlide();
-    });
-
-    updateSlider();
-    startAutoSlide();
-}
-
-// Initialize sliders
-document.addEventListener("DOMContentLoaded", function () {
-    initializeSlider("slider1");
-    initializeSlider("slider2");
-});
 
 // Ella Tours Animation
 document.addEventListener("DOMContentLoaded", function() {
@@ -317,4 +246,3 @@ lightbox.addEventListener('click', (e) => {
         animateDayContainers(activeContent);
         firstTabb.classList.add('selected');
     }
-

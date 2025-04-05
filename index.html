@@ -13,10 +13,13 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="apple-touch-icon" href="img/logo.png">
     <link rel="stylesheet" href="Connectors/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="Connectors/swiper-bundle.min.css">
     <link rel="stylesheet" href="/Components/footer.css">
+    <link rel="stylesheet" href="/slider.css">
+    <link rel="stylesheet" href="/popup.html">
 
 </head> 
 
@@ -148,7 +151,7 @@ Let us guide you through this island paradise, where history, culture, and natur
                 </div>
             </div>
             <div class="gallery-item" style="background-image: url('/placeholder.svg?height=300&width=300');">
-                <img src="img/photographytour/Kandyan-dance.jpg" alt="Northern lights in the night sky" aria-hidden="true">
+                <img src="img/kandy cultural dance.jpg" alt="Northern lights in the night sky" aria-hidden="true">
                 <div class="overlay">
                     <h3>Kandyan Dance</h3>
                     <p>Traditional Sri Lankan dance with colorful costumes and rhythm</p>
@@ -165,189 +168,140 @@ Let us guide you through this island paradise, where history, culture, and natur
         </div>
     </div>  
         <!-----------------------------------Gallerry end---------------------------------------->
-        <!-----------------------------------Pakagesone start---------------------------------------->
+
+
+
+       <!-----------------------------------Pakagesone start---------------------------------------->
+
+       <div class="header-slide">
+        <h1>Round Tours</h1>
+       </div>
+       <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- Card 1 -->
+          <div class="swiper-slide">
+            <img src="img/photographytour/nuwaraaliya-3.jpg" alt="Beach" class="card-img"/>
+            <div class="card-content">
+                <h2>Sri lanka Photography Tour</h2>
+              <p>Capture Sri Lanka’s hidden gems through your lens on a guided photography adventure.</p>
+              <button>Explore</button>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="swiper-slide">
+            <img src="img/beach 2.jpg" alt="Mountains" class="card-img"/>
+            <div class="card-content">
+                <h2>Sri lanka Beach Tour</h2>
+              <p>Relax on sun-kissed beaches and experience tropical bliss like never before.</p>
+              <button>Explore</button>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="swiper-slide">
+            <img src="img/moon2.jpg" alt="City" class="card-img"/>
+            <div class="card-content">
+                <h2> Honeymoon Tour</h2>
+                <p>Celebrate love in paradise with romantic escapes across Sri Lanka’s serene spots.</p>
+                <button>Explore</button>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="swiper-slide">
+            <img src="img/nature.jpg" alt="Forest" class="card-img"/>
+            <div class="card-content">
+                <h2> Wildlife Tour</h2>
+              <p>Meet elephants, leopards, and exotic birds in Sri Lanka’s vibrant national parks.</p>
+              <button>Explore</button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="img/kovil.jpg" alt="Forest" class="card-img"/>
+            <div class="card-content">
+              <h2>Ramayana Tour</h2>
+              <p>Walk the mythical path of Ramayana across ancient temples and sacred sites.</p>
+              <button>Explore</button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="img/buddisam.jpg" alt="Forest" class="card-img"/>
+            <div class="card-content">
+              <h2>Cultural Tour</h2>
+              <p>Uncover Sri Lanka’s rich history, traditions, and heritage in an immersive journey.</p>
+              <button>Explore</button>
+            </div>
+          </div>
+        </div>
         
-
-          <!-- Slider 1 -->
-    <div class="slider-container">
-        <h2 class="slider-title">Round Tours</h2>
-        <div class="slider-wrapper" id="slider1">
-            <button class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-track">
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/diyyaela.jpg" alt="Kandy Day Tour">
-                        <div class="tour-content">
-                            <h3>Sri Lanka Photography Tour</h3>
-                            <p>Capture Sri Lanka’s landscapes, from Sigiriya Rock to vibrant wildlife and cultural landmarks.</p>
-                            <a href="photogrphytour.html">
-                                <button class="explore-btn animate-btn">
-                                    Explore Now <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </a>  
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/beach 3.jpg" alt="Colombo City">
-                        <div class="tour-content">
-                            <h3>Sri Lanka Beach Tour</h3>
-                            <p>Relax on the golden beaches of Mirissa, Unawatuna, and Bentota with clear waters and fun activities.</p>
-                            <a href="SrilankaBeachTour.html">
-                                <button class="explore-btn animate-btn">
-                                    Explore Now <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </a>  
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/moon2.jpg" alt="Sigiriya Rock">
-                        <div class="tour-content">
-                            <h3>Sri Lanka honeymoon Tour</h3>
-                            <p>Enjoy a romantic getaway with scenic views, luxury resorts, and tranquil beaches in Srilanka.</p>
-                            <a href="honeymoontour.html">
-                                <button class="explore-btn animate-btn">
-                                    Explore Now <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </a> 
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/leopard.jpg" alt="Galle Fort">
-                        <div class="tour-content">
-                            <h3>Sri Lanka Wildlife</h3>
-                            <p>Explore Sri Lanka’s national parks like Yala and Udawalawe to see elephants, leopards, and exotic birds.</p>
-                            <a href="SrilankaWildTOur.html">
-                                <button class="explore-btn animate-btn">
-                                    Explore Now <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </a>  
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/kovil.jpg" alt="Yala National Park">
-                        <div class="tour-content">
-                            <h3>Sri Lanka Ramayana Tour</h3>
-                            <p>Visit sacred sites from the Ramayana epic, including Sita Amman Temple and Ravana Falls.</p>
-                            <a href="Ramayanatour.html">
-                                <button class="explore-btn animate-btn">
-                                    Explore Now <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </a>  
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card-inner">
-                    <img src="img/earth-hour-.jpg" alt="Yala National Park">
-                    <div class="tour-content">
-                        <h3>Sri Lanka culturalHeritage Tour</h3>
-                        <p></p>
-                        <a href="Sri lankaCulturalHeritage.html">
-                            <button class="explore-btn animate-btn">
-                                Explore Now <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </a>  
-                    </div>
-                </div>
+        <!-- Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    
+    
+    
+    
+    
+    
+    
+    
+      <div class="header-slide">
+       <h1>Day Tours</h1>
+       </div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- Card 1 -->
+          <div class="swiper-slide">
+            <img src="img/ella.jpg" alt="Beach" class="card-img"/>
+            <div class="card-content">
+                <h2>Ella Day Tour</h2>
+              <p>Hike the hills, visit Nine Arches, and take in the scenic beauty of Ella in one day.</p>
+              <button>Explore</button>
             </div>
-            <button class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="slider-indicators" id="dots1"></div>
-    </div>
-
-    <!-- Slider 2 -->
-    <div class="slider-container">
-        <h2 class="slider-title">Day Tours</h2>
-        <div class="slider-wrapper" id="slider2">
-            <button class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-track">
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/ella.jpg" alt="Adams Peak Hike">
-                        <div class="tour-content">
-                            <h3>Ella Day Tour</h3>
-                            <p>Hike to Ella Rock, visit Ravana Falls, and enjoy panoramic views of lush green valleys.</p>
-                            <a href="Ella.html">
-                                <a href="Ella.html">
-                                    <button class="explore-btn animate-btn">
-                                        Explore Now <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </a>  
-                            </a>  
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/temple tooth.jpg" alt="Kandy">
-                        <div class="tour-content">
-                            <h3>Kandy Day Tour</h3>
-                            <p>Visit the Temple of the Tooth, stunning botanical gardens, and enjoy Kandyan culture and scenic mountain views.</p>
-                            <a href="KandyDayTour.html">
-                                <button class="explore-btn animate-btn">
-                                    Explore Now <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </a>  
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/nuwaraliya.jpg" alt="Nuwara Eliya">
-                        <div class="tour-content">
-                            <h3>Nuwara Eliya Day Tour</h3>
-                            <p>Discover Nuwara Eliya’s cool climate, tea plantations, and the picturesque Gregory Lake.</p>
-                            <a href="Nuwaraeliya.html">
-                                <button class="explore-btn animate-btn">
-                                    Explore Now <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </a>  
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/pinawalla.jpg" alt="Mirissa Whale Watching">
-                        <div class="tour-content">
-                            <h3>Pinnawala Elephant Orphanage Tour</h3>
-                            <p>Watch and interact with elephants at the Pinnawala Elephant Orphanage.</p>
-                            <a href="Pinawala.html">
-                                <button class="explore-btn animate-btn">
-                                    Explore Now <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </a>  
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-card-inner">
-                        <img src="img/tourPlaces/Sigriya.jpg" alt="Anuradhapura">
-                        <div class="tour-content">
-                            <h3>Sigiriya Day Tour</h3>
-                            <p>Climb Sigiriya Rock Fortress for stunning views and explore ancient ruins.
-                            </p>
-                            <a href="Sigiriya.html">
-                                <button class="explore-btn animate-btn">
-                                    Explore Now <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </a>                            
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="swiper-slide">
+            <img src="img/kandy lake.jpg" alt="Mountains" class="card-img"/>
+            <div class="card-content">
+                <h2>Kandy Day Tour</h2>
+              <p>Discover the Temple of the Tooth, serene lakes, and royal gardens in Kandy.</p>
+              <button>Explore</button>
             </div>
-            <button class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          <!-- Card 3 -->
+          <div class="swiper-slide">
+            <img src="img/nuwaraliya.jpg" alt="City" class="card-img"/>
+            <div class="card-content">
+                <h2> Nuwara Eliya Day Tour</h2>
+                <p>Explore tea plantations and colonial charm in Sri Lanka’s “Little England.</p>
+                <button>Explore</button>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="swiper-slide">
+            <img src="img/pinawalla.jpg" alt="Forest" class="card-img"/>
+            <div class="card-content">
+                <h2>Pinnawala Elephant Orphanage</h2>
+              <p>Spend the day with majestic elephants and learn about conservation efforts.</p>
+              <button>Explore</button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="img/sigiriya-gallery.jpg" alt="Forest" class="card-img"/>
+            <div class="card-content">
+              <h2>Sigiriya Day Tour</h2>
+              <p>Climb the iconic Lion Rock Fortress and enjoy panoramic views of the jungle</p>
+              <button>Explore</button>
+            </div>
+          </div>
         </div>
-        <div class="slider-indicators" id="dots2"></div>
-    </div>
-
-        <!-----------------------------------Packagesone end---------------------------------------->
+        
+        <!-- Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    
         
           <!-----------------------------------2nd page with slider---------------------------------------->
         <!-----------------------------------2nd page with paralex---------------------------------------->
@@ -384,6 +338,17 @@ Let us guide you through this island paradise, where history, culture, and natur
             </div>
         </div>
         <!-----------------------------------2nd page with paralex end---------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
          <!-----------------------------------Why with us start---------------------------------------->
          
          <div class="travelContainer">
@@ -396,7 +361,7 @@ Let us guide you through this island paradise, where history, culture, and natur
             <div class="travelContent">
             <h1>Why Travel With Us?</h1>
             <p>
-                    Embark on unforgettable journeys with a partner you can trust. We provide meticulously curated travel experiences to let you indulge on every vacation trip without stress, so sit relax let us handle it all!. Here are just few of many reasons why you should travel with us!
+            Embark on unforgettable journeys with a partner you can trust. We provide meticulously curated travel experiences to let you indulge on every vacation trip without stress, so sit relax let us handle it all!. Here are just few of many reasons why you should travel with us!
             </p>
                </div>
             <div class="featureSet">
@@ -435,6 +400,8 @@ Let us guide you through this island paradise, where history, culture, and natur
         <!-----------------------------------Why with us End---------------------------------------->
     <div id="footer"></div>
     <script src="Components/NavBar.js"></script>
+    <script src="slider.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="navbarFooter.js"></script>
     <script src="Connectors/swiper-bundle.min.js"></script>
     <script src="index.js"></script>

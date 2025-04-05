@@ -12,7 +12,8 @@ async function loadComponent(id, file) {
     }
 }
 
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
     loadComponent('navbar', 'Components/NavBar.html');
     loadComponent('footer', 'Components/footer.html');
-};
+    loadComponent('playground', 'playground.html');
+});

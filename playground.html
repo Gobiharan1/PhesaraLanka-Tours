@@ -1,782 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tourism Carousel Slider</title>
-    <link rel="stylesheet" href="css/second_slider_style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tourist Slider</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <style>
+
+.swiper {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.swiper-slide {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px; /* Fixed height for uniform card size */
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensure content fills the remaining space */
+}
+
+.card-content h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #333;
+  margin: 1rem 0;
+  flex-grow: 1; /* Allow text to grow and fill space if needed */
+}
+
+.card-content button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card-content button:hover {
+  background: #0056b3;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #007bff;
+}
+
+.swiper-pagination-bullet {
+  background: #bbb;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #007bff;
+}
+
+  </style>
 </head>
-<style>
-    /* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: #f0f8ff;
-    color: #333;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-h1 {
-    text-align: center;
-    color: #0066cc;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-}
-
-h2 {
-    color: #0055aa;
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-}
-
-.slider-section {
-    margin-bottom: 4rem;
-}
-
-/* Slider Styles */
-.slider-container {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) ;
-}
-
-.slider-wrapper {
-    display: flex;
-    height: 100%;
-    transition: transform 0.8s ease-in-out;
-}
-
-.slide {
-    height: 100%;
-    position: relative;
-    flex: 0 0 calc(100% / 3); /* Show 3 slides at a time by default */
-    padding: 0 10px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.slide-image {
-    position: relative;
-    height: 100%;
-    border-radius: 8px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.slide-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-/* Slider Navigation */
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 102, 204, 0.7);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slider-arrow:hover {
-    background-color: rgba(0, 102, 204, 1);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.prev-arrow {
-    left: 20px;
-}
-
-.next-arrow {
-    right: 20px;
-}
-
-.slider-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.indicator.active {
-    background-color: #0066cc;
-    transform: scale(1.2);
-}
-
-/* Immersive Style Slider */
-.slide-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    color: white;
-    transform: translateY(0);
-    transition: transform 0.5s ease;
-}
-
-.slide-overlay h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.slide-overlay p {
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
-}
-
-.discover-btn {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.discover-btn:hover {
-    background-color: white;
-    color: #0066cc;
-    transform: translateY(-3px);
-}
-
-.slide:hover .slide-image img {
-    transform: scale(1.05);
-}
-
-.slide:hover .slide-overlay {
-    transform: translateY(-10px);
-}
-
-/* Slider Progress Bar */
-.slider-progress {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    width: 0%;
-    background-color: #0066cc;
-    z-index: 10;
-    transition: width 0.1s linear;
-}
-
-/* Fullscreen Button */
-.fullscreen-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(0, 102, 204, 0.7);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.fullscreen-btn:hover {
-    background-color: rgba(0, 102, 204, 1);
-    transform: scale(1.1);
-}
-
-/* Responsive Styles */
-@media (min-width: 1200px) {
-    .slide {
-        flex: 0 0 25%; /* Show 4 slides at a time on large screens */
-    }
-}
-
-@media (max-width: 992px) {
-    .slide {
-        flex: 0 0 33.333%; /* Show 3 slides at a time on medium screens */
-    }
-    
-    .slider-container {
-        height: 380px;
-    }
-    
-    .slide-overlay h3 {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    
-    h2 {
-        font-size: 1.5rem;
-    }
-    
-    .slide {
-        flex: 0 0 50%; /* Show 2 slides at a time on small screens */
-    }
-    
-    .slider-container {
-        height: 350px;
-    }
-    
-    .slide-overlay {
-        padding: 0.8rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .slide {
-        flex: 0 0 100%; /* Show 1 slide at a time on very small screens */
-    }
-    
-    .slider-container {
-        height: 300px;
-    }
-    
-    .slider-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-    
-    .slide-overlay h3 {
-        font-size: 1rem;
-    }
-    
-    .slide-overlay p {
-        font-size: 0.8rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .discover-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-    }
-}
-
-</style>
 <body>
-    <div class="container">
-        <h1>Tourism Destination Slider</h1>
-        
-        <!-- Immersive Style Slider -->
-        <section class="slider-section">
-            <h2>Round Tours</h2>
-            <div class="slider-container slider-2">
-                <div class="slider-wrapper">
-                    <!-- Slide 1 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="img/diyyaela.jpg" alt="Wildlife Safari">
-                            <div class="slide-overlay">
-                                <h3>Wildlife Safari</h3>
-                                <p>Encounter exotic wildlife in their natural habitat. An unforgettable adventure.</p>
-                                <button class="discover-btn">Discover More</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 2 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://source.unsplash.com/1600x900/?waterfall" alt="Waterfall">
-                            <div class="slide-overlay">
-                                <h3>Natural Wonders</h3>
-                                <p>Marvel at spectacular waterfalls, lush rainforests, and unique geological formations.</p>
-                                <button class="discover-btn">Discover More</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 3 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://source.unsplash.com/1600x900/?culture" alt="Cultural Experience">
-                            <div class="slide-overlay">
-                                <h3>Cultural Immersion</h3>
-                                <p>Engage with local traditions, festivals, and customs. Experience authentic cultural exchanges.</p>
-                                <button class="discover-btn">Discover More</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 4 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://source.unsplash.com/1600x900/?food" alt="Culinary Experience">
-                            <div class="slide-overlay">
-                                <h3>Culinary Journeys</h3>
-                                <p>Savor local cuisines and delicacies. Embark on gastronomic adventures that tantalize your taste buds.</p>
-                                <button class="discover-btn">Discover More</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 5 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://source.unsplash.com/1600x900/?architecture" alt="Architectural Marvels">
-                            <div class="slide-overlay">
-                                <h3>Architectural Marvels</h3>
-                                <p>Explore stunning buildings, bridges, and structures that showcase human ingenuity and creativity.</p>
-                                <button class="discover-btn">Discover More</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 6 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://source.unsplash.com/1600x900/?adventure" alt="Adventure Sports">
-                            <div class="slide-overlay">
-                                <h3>Adventure Sports</h3>
-                                <p>Get your adrenaline pumping with thrilling activities like rafting, paragliding, and rock climbing.</p>
-                                <button class="discover-btn">Discover More</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Navigation Arrows -->
-                <button class="slider-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
-                <button class="slider-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
-                
-                <!-- Indicators -->
-                <div class="slider-indicators">
-                    <span class="indicator active"></span>
-                    <span class="indicator"></span>
-                    <span class="indicator"></span>
-                    <span class="indicator"></span>
-                </div>
-            </div>
-        </section>
-    </div>
 
-    <script>
-     // Improved Carousel Slider functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the slider
-    initSlider('slider-2');
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Card 1 -->
+      <div class="swiper-slide">
+        <img src="img/photographytour/nuwaraaliya-3.jpg" alt="Beach" class="card-img"/>
+        <div class="card-content">
+            <h2>Sri lanka Photography Tour</h2>
+          <p>Capture Sri Lanka’s hidden gems through your lens on a guided photography adventure.</p>
+          <button>Explore</button>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="swiper-slide">
+        <img src="img/beach 2.jpg" alt="Mountains" class="card-img"/>
+        <div class="card-content">
+            <h2>Sri lanka Beach Tour</h2>
+          <p>Relax on sun-kissed beaches and experience tropical bliss like never before.</p>
+          <button>Explore</button>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="swiper-slide">
+        <img src="img/moon2.jpg" alt="City" class="card-img"/>
+        <div class="card-content">
+            <h2> Honeymoon Tour</h2>
+            <p>Celebrate love in paradise with romantic escapes across Sri Lanka’s serene spots.</p>
+            <button>Explore</button>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="swiper-slide">
+        <img src="img/nature.jpg" alt="Forest" class="card-img"/>
+        <div class="card-content">
+            <h2> Wildlife Tour</h2>
+          <p>Meet elephants, leopards, and exotic birds in Sri Lanka’s vibrant national parks.</p>
+          <button>Explore</button>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="img/kovil.jpg" alt="Forest" class="card-img"/>
+        <div class="card-content">
+          <h2>Ramayana Tour</h2>
+          <p>Walk the mythical path of Ramayana across ancient temples and sacred sites.</p>
+          <button>Explore</button>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="img/buddisam.jpg" alt="Forest" class="card-img"/>
+        <div class="card-content">
+          <h2>Cultural Tour</h2>
+          <p>Uncover Sri Lanka’s rich history, traditions, and heritage in an immersive journey.</p>
+          <button>Explore</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Card 1 -->
+      <div class="swiper-slide">
+        <img src="img/ella.jpg" alt="Beach" class="card-img"/>
+        <div class="card-content">
+            <h2>Ella Day Tour</h2>
+          <p>Hike the hills, visit Nine Arches, and take in the scenic beauty of Ella in one day.</p>
+          <button>Explore</button>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="swiper-slide">
+        <img src="img/kandy lake.jpg" alt="Mountains" class="card-img"/>
+        <div class="card-content">
+            <h2>Kandy Day Tour</h2>
+          <p>Discover the Temple of the Tooth, serene lakes, and royal gardens in Kandy.</p>
+          <button>Explore</button>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="swiper-slide">
+        <img src="img/nuwaraliya.jpg" alt="City" class="card-img"/>
+        <div class="card-content">
+            <h2> Nuwara Eliya Day Tour</h2>
+            <p>Explore tea plantations and colonial charm in Sri Lanka’s “Little England.</p>
+            <button>Explore</button>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="swiper-slide">
+        <img src="img/pinawalla.jpg" alt="Forest" class="card-img"/>
+        <div class="card-content">
+            <h2>Pinnawala Elephant Orphanage</h2>
+          <p>Spend the day with majestic elephants and learn about conservation efforts.</p>
+          <button>Explore</button>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="img/sigiriya-gallery.jpg" alt="Forest" class="card-img"/>
+        <div class="card-content">
+          <h2>Sigiriya Day Tour</h2>
+          <p>Climb the iconic Lion Rock Fortress and enjoy panoramic views of the jungle</p>
+          <button>Explore</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script>
+   const swiper = new Swiper('.mySwiper', {
+  slidesPerView: 3,
+  spaceBetween: 20,
+  loop: true,
+  speed: 1000, // smoother speed
+  autoplay: {
+    delay: 1000, // wait 3 seconds before sliding
+    disableOnInteraction: true, // pause autoplay when user interacts
+  },
+  grabCursor: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+    1400: {
+      slidesPerView: 4,
+    }
+  }
 });
 
-function initSlider(sliderClass) {
-    const slider = document.querySelector(`.${sliderClass}`);
-    if (!slider) return; // Exit if slider not found
-    
-    const sliderWrapper = slider.querySelector('.slider-wrapper');
-    const slides = slider.querySelectorAll('.slide');
-    const prevArrow = slider.querySelector('.prev-arrow');
-    const nextArrow = slider.querySelector('.next-arrow');
-    
-    // Exit if essential elements are missing
-    if (!sliderWrapper || !slides.length || !prevArrow || !nextArrow) return;
-    
-    let currentIndex = 0;
-    const slideCount = slides.length;
-    let slideInterval;
-    let isAutoPlaying = true;
-    const autoPlayDelay = 5000; // 5 seconds between slides
-    
-    // Calculate how many slides to show based on screen width
-    let slidesToShow = getSlidesToShow();
-    let slidesToScroll = 1;
-    
-    // Calculate total number of "pages" for indicators
-    const totalPages = Math.max(1, Math.ceil((slideCount - slidesToShow) / slidesToScroll) + 1);
-    
-    // Create or update indicators
-    createIndicators(totalPages);
-    
-    // Set initial position and width
-    updateSliderLayout();
-    
-    // Start auto-play
-    startAutoPlay();
-    
-    // Event listeners
-    prevArrow.addEventListener('click', prevSlide);
-    nextArrow.addEventListener('click', nextSlide);
-    
-    // Pause on hover
-    slider.addEventListener('mouseenter', pauseAutoPlay);
-    slider.addEventListener('mouseleave', resumeAutoPlay);
-    
-    // Touch events for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    slider.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-        pauseAutoPlay();
-    }, { passive: true });
-    
-    slider.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-        resumeAutoPlay();
-    }, { passive: true });
-    
-    // Window resize event with debounce
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            const newSlidesToShow = getSlidesToShow();
-            if (newSlidesToShow !== slidesToShow) {
-                slidesToShow = newSlidesToShow;
-                
-                // Recalculate total pages
-                const newTotalPages = Math.max(1, Math.ceil((slideCount - slidesToShow) / slidesToScroll) + 1);
-                
-                // Update indicators if needed
-                if (newTotalPages !== totalPages) {
-                    createIndicators(newTotalPages);
-                }
-                
-                // Adjust current index if needed
-                if (currentIndex > slideCount - slidesToShow) {
-                    currentIndex = Math.max(0, slideCount - slidesToShow);
-                }
-                
-                updateSliderLayout();
-                updateIndicators();
-            }
-        }, 250); // Debounce resize events
-    });
-    
-    // Functions
-    function getSlidesToShow() {
-        const windowWidth = window.innerWidth;
-        if (windowWidth >= 1200) return 4; // Large screens
-        if (windowWidth >= 992) return 3;  // Medium screens
-        if (windowWidth >= 768) return 2;  // Small screens
-        return 1; // Very small screens
-    }
-    
-    function createIndicators(count) {
-        // Find or create indicators container
-        let indicatorsContainer = slider.querySelector('.slider-indicators');
-        if (!indicatorsContainer) {
-            indicatorsContainer = document.createElement('div');
-            indicatorsContainer.className = 'slider-indicators';
-            slider.appendChild(indicatorsContainer);
-        }
-        
-        // Clear existing indicators
-        indicatorsContainer.innerHTML = '';
-        
-        // Create new indicators
-        for (let i = 0; i < count; i++) {
-            const indicator = document.createElement('span');
-            indicator.className = i === 0 ? 'indicator active' : 'indicator';
-            indicator.setAttribute('data-index', i);
-            indicatorsContainer.appendChild(indicator);
-            
-            // Add click event
-            indicator.addEventListener('click', function() {
-                const index = parseInt(this.getAttribute('data-index'));
-                goToPage(index);
-            });
-        }
-    }
-    
-    function goToPage(pageIndex) {
-        currentIndex = pageIndex * slidesToScroll;
-        
-        // Make sure we don't go beyond the last possible slide
-        const maxIndex = Math.max(0, slideCount - slidesToShow);
-        currentIndex = Math.min(currentIndex, maxIndex);
-        
-        updateSliderPosition();
-        updateIndicators();
-        resetAutoPlay();
-    }
-    
-    function updateSliderLayout() {
-        // Set width for each slide based on slidesToShow
-        slides.forEach(slide => {
-            slide.style.flex = `0 0 calc(100% / ${slidesToShow})`;
-        });
-        
-        updateSliderPosition();
-    }
-    
-    function prevSlide() {
-        currentIndex = Math.max(0, currentIndex - slidesToScroll);
-        updateSliderPosition();
-        updateIndicators();
-        resetAutoPlay();
-    }
-    
-    function nextSlide() {
-        const maxIndex = Math.max(0, slideCount - slidesToShow);
-        currentIndex = Math.min(maxIndex, currentIndex + slidesToScroll);
-        updateSliderPosition();
-        updateIndicators();
-        resetAutoPlay();
-    }
-    
-    function updateSliderPosition() {
-        const slideWidth = 100 / slidesToShow;
-        const position = -currentIndex * slideWidth;
-        sliderWrapper.style.transform = `translateX(${position}%)`;
-    }
-    
-    function updateIndicators() {
-        const currentPage = Math.floor(currentIndex / slidesToScroll);
-        const indicators = slider.querySelectorAll('.indicator');
-        
-        indicators.forEach((indicator, index) => {
-            if (index === currentPage) {
-                indicator.classList.add('active');
-            } else {
-                indicator.classList.remove('active');
-            }
-        });
-    }
-    
-    function startAutoPlay() {
-        if (isAutoPlaying) {
-            clearInterval(slideInterval); // Clear any existing interval
-            slideInterval = setInterval(() => {
-                if (currentIndex < slideCount - slidesToShow) {
-                    currentIndex += slidesToScroll;
-                    updateSliderPosition();
-                    updateIndicators();
-                } else {
-                    // Reset to first slide when reaching the end
-                    currentIndex = 0;
-                    updateSliderPosition();
-                    updateIndicators();
-                }
-                updateProgressBar(0); // Reset progress bar
-            }, autoPlayDelay);
-        }
-    }
-    
-    function pauseAutoPlay() {
-        clearInterval(slideInterval);
-    }
-    
-    function resumeAutoPlay() {
-        if (isAutoPlaying) {
-            startAutoPlay();
-        }
-    }
-    
-    function resetAutoPlay() {
-        pauseAutoPlay();
-        startAutoPlay();
-        updateProgressBar(0); // Reset progress bar
-    }
-    
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        if (touchEndX < touchStartX - swipeThreshold) {
-            // Swipe left, go to next slide
-            nextSlide();
-        } else if (touchEndX > touchStartX + swipeThreshold) {
-            // Swipe right, go to previous slide
-            prevSlide();
-        }
-    }
-    
-    // Add subtle animation effect (simplified to avoid performance issues)
-    slides.forEach(slide => {
-        const img = slide.querySelector('img');
-        if (!img) return;
-        
-        // Use CSS transform instead of continuous JS animation
-        img.style.transition = 'transform 10s ease-in-out';
-        img.style.transform = 'scale(1.05)';
-        
-        // Add hover effect
-        slide.addEventListener('mouseenter', () => {
-            if (img) {
-                img.style.transform = 'scale(1.1)';
-            }
-        });
-        
-        slide.addEventListener('mouseleave', () => {
-            if (img) {
-                img.style.transform = 'scale(1.05)';
-            }
-        });
-    });
-    
-    // Add keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
-            prevSlide();
-        } else if (e.key === 'ArrowRight') {
-            nextSlide();
-        }
-    });
-    
-    // Add accessibility features
-    slides.forEach((slide, index) => {
-        const slideTitle = slide.querySelector('h3')?.textContent || `Slide ${index + 1}`;
-        slide.setAttribute('aria-label', `Slide ${index + 1}: ${slideTitle}`);
-        slide.setAttribute('role', 'group');
-    });
-    
-    prevArrow.setAttribute('aria-label', 'Previous slides');
-    nextArrow.setAttribute('aria-label', 'Next slides');
-    
-    // Add progress bar
-    let progressBar = slider.querySelector('.slider-progress');
-    if (!progressBar) {
-        progressBar = document.createElement('div');
-        progressBar.className = 'slider-progress';
-        slider.appendChild(progressBar);
-    }
-    
-    // Update progress bar
-    let progressWidth = 0;
-    let progressInterval;
-    
-    function startProgressBar() {
-        clearInterval(progressInterval);
-        progressInterval = setInterval(updateProgress, 50);
-    }
-    
-    function updateProgress() {
-        if (!isAutoPlaying) return;
-        
-        progressWidth = (progressWidth + 100 / (autoPlayDelay / 50)) % 100;
-        
-        if (progressWidth >= 100) {
-            progressWidth = 0;
-        }
-        
-        progressBar.style.width = `${progressWidth}%`;
-    }
-    
-    function updateProgressBar(width) {
-        progressWidth = width;
-        progressBar.style.width = `${width}%`;
-    }
-    
-    startProgressBar();
-    
-    // Add fullscreen button
-    let fullscreenBtn = slider.querySelector('.fullscreen-btn');
-    if (!fullscreenBtn) {
-        fullscreenBtn = document.createElement('button');
-        fullscreenBtn.className = 'fullscreen-btn';
-        fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-        fullscreenBtn.setAttribute('aria-label', 'View fullscreen');
-        slider.appendChild(fullscreenBtn);
-    }
-    
-    // Fullscreen functionality
-    fullscreenBtn.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-            if (slider.requestFullscreen) {
-                slider.requestFullscreen();
-            } else if (slider.webkitRequestFullscreen) {
-                slider.webkitRequestFullscreen();
-            } else if (slider.msRequestFullscreen) {
-                slider.msRequestFullscreen();
-            }
-            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
-            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-        }
-    });
-    
-    document.addEventListener('fullscreenchange', updateFullscreenButton);
-    document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
-    document.addEventListener('msfullscreenchange', updateFullscreenButton);
-    
-    function updateFullscreenButton() {
-        if (document.fullscreenElement) {
-            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-        } else {
-            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
-        }
-    }
-    
-    // Add lazy loading for images
-    const lazyImages = slider.querySelectorAll('img');
-    lazyImages.forEach(img => {
-        img.loading = 'lazy';
-    });
-    
-    // Preload next slide images
-    function preloadNextSlideImages() {
-        const nextIndex = Math.min(slideCount - 1, currentIndex + slidesToShow);
-        const nextSlideImg = slides[nextIndex]?.querySelector('img');
-        
-        if (nextSlideImg && nextSlideImg.src) {
-            const preloadImg = new Image();
-            preloadImg.src = nextSlideImg.src;
-        }
-    }
-    
-    // Initial preload of next slide images
-    preloadNextSlideImages();
-}
+  </script>
 
-
-    </script>
 </body>
 </html>
